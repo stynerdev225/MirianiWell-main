@@ -14,7 +14,10 @@ export async function getUserById(userId: string): Promise<User | null> {
   return null;
 }
 
-export async function updateUser(userId: string, params: Partial<User>): Promise<User | null> {
+export async function updateUser(
+  userId: string,
+  params: Partial<User>
+): Promise<User | null> {
   console.log("Update user - disabled for deployment", userId, params);
   return null;
 }
@@ -57,7 +60,7 @@ export async function syncUserWithDatabase(userData: {
 }) {
   try {
     // Database not available - user sync skipped
-    console.warn("Database not available - user sync skipped");
+    console.warn("Database not available - user sync skipped", userData);
     return {
       success: true,
       message: "User authenticated (database sync skipped in development)",
