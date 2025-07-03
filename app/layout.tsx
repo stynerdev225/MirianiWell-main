@@ -55,6 +55,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Check if Clerk keys are available
+  const hasClerkKeys = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+  
+  if (!hasClerkKeys) {
+    // If no Clerk keys, render without ClerkProvider
+    return (
+      <html lang="en" className={`${cinzelDecorative.variable}`}>
+        <body
+          className={`${inter.className} antialiased`}
+          suppressHydrationWarning
+        >
+          {children}
+          <Toaster position="top-right" />
+          <Analytics />
+          <SpeedInsights />
+        </body>
+      </html>
+    );
+  }
+  
   return (
     <ClerkProvider
       appearance={{

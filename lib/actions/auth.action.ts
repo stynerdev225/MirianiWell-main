@@ -1,23 +1,48 @@
+// Temporarily disabled for deployment - all auth database functions
 "use server";
 
 import { auth } from "@clerk/nextjs/server";
-import { createDb } from "@/lib/db";
-import { users } from "@/lib/db/schema";
-import { eq } from "drizzle-orm";
 import type { User, SignUpParams, SignInParams } from "@/types";
 
-// Get database instance
-async function getDb() {
-  if (process.env.NODE_ENV === "development") {
-    // In development, we'll create a mock user or use a simple in-memory store
-    return null;
-  }
+export async function createUser(params: SignUpParams): Promise<User | null> {
+  console.log("Create user - disabled for deployment", params);
+  return null;
+}
 
-  const d1 = (global as { DB?: unknown }).DB;
-  if (!d1) {
-    console.warn("D1 database not available");
+export async function getUserById(userId: string): Promise<User | null> {
+  console.log("Get user by ID - disabled for deployment", userId);
+  return null;
+}
+
+export async function updateUser(userId: string, params: Partial<User>): Promise<User | null> {
+  console.log("Update user - disabled for deployment", userId, params);
+  return null;
+}
+
+export async function signInUser(params: SignInParams): Promise<User | null> {
+  console.log("Sign in user - disabled for deployment", params);
+  return null;
+}
+
+export async function getCurrentUser(): Promise<User | null> {
+  try {
+    const { userId } = await auth();
+    if (!userId) return null;
+    
+    // Return a mock user for now
+    return {
+      id: userId,
+      email: "user@example.com",
+      firstName: "User",
+      lastName: "Name",
+      createdAt: new Date(),
+      updatedAt: new Date()
+    };
+  } catch (error) {
+    console.error("Error getting current user:", error);
     return null;
   }
+}
 
   return createDb(d1);
 }

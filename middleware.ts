@@ -9,15 +9,18 @@ const isPublicRoute = createRouteMatcher([
 ]);
 
 export default clerkMiddleware(async (auth, req) => {
-  // Temporarily disable auth protection for deployment
-  // if (!isPublicRoute(req)) {
-  //   await auth.protect();
-  // }
+  // Check if Clerk keys are available
+  const hasClerkKeys = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
   
-  // Use variables to prevent lint errors
-  void auth;
-  void req;
-  void isPublicRoute;
+  if (!hasClerkKeys) {
+    // If no Clerk keys, skip auth protection
+    return;
+  }
+  
+  // If the route is not public, protect it
+  if (!isPublicRoute(req)) {
+    await auth.protect();
+  }
 });
 
 export const config = {
