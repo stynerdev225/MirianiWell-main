@@ -1,0 +1,733 @@
+import { currentUser } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  Heart,
+  BookOpen,
+  Sparkles,
+  Bot,
+  Calendar,
+  ArrowRight,
+  Bookmark,
+  TrendingUp,
+  Award,
+  Clock,
+  MessageCircle,
+  BarChart,
+  Sunset,
+  Moon,
+  Sun,
+  Zap,
+} from "lucide-react";
+
+// Helper function to get image URLs for each feature
+const getImageForFeature = (title: string) => {
+  const imageMap: { [key: string]: string } = {
+    "Daily Check-In": "/images/rituals/water.jpg",
+    "Healing Journal": "/images/rituals/earth.jpg",
+    "Guided Rituals": "/images/rituals/fire.jpg",
+    "AI Healing Companion": "/images/rituals/air.jpg",
+    "Daily Affirmations": "/images/home/hero.jpg",
+    "Mindfulness Meditation": "/images/rituals/hero.jpg",
+  };
+
+  return imageMap[title] || "/images/home/hero.jpg";
+};
+
+  return (
+    imageMap[title] ||
+    "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?q=80&w=2070&auto=format&fit=crop"
+  );
+};
+
+// Helper function to get static Unsplash image URLs for wellness tips
+const getImageForWellnessTip = (title: string) => {
+  const imageMap: { [key: string]: string } = {
+    "Energizing Morning Routine":
+      "https://images.unsplash.com/photo-1590586767908-52ed2e5f5ff7?q=80&w=2070&auto=format&fit=crop",
+    "Better Sleep Habits":
+      "https://images.unsplash.com/photo-1586710128372-db2127c18e85?q=80&w=2070&auto=format&fit=crop",
+    "Mood Enhancement":
+      "https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?q=80&w=2070&auto=format&fit=crop",
+    "Mindful Meditation":
+      "https://images.unsplash.com/photo-1545389336-cf090694435e?q=80&w=2070&auto=format&fit=crop",
+    "Nutritional Wellness":
+      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop",
+    "Self-Care Practices":
+      "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?q=80&w=2070&auto=format&fit=crop",
+  };
+
+  return (
+    imageMap[title] ||
+    "https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?q=80&w=2070&auto=format&fit=crop"
+  );
+};
+
+const DashboardPage = async () => {
+  const user = await currentUser();
+  if (!user) redirect("/sign-in");
+
+  // Create a simplified user object for potential client component usage
+  const simpleUser = {
+    firstName: user.firstName,
+    lastName: user.lastName,
+    imageUrl: user.imageUrl,
+    email: user.emailAddresses[0]?.emailAddress,
+    id: user.id,
+  };
+
+  const userName =
+    user.firstName || user.emailAddresses[0].emailAddress.split("@")[0];
+
+  const features = [
+    {
+      title: "Daily Check-In",
+      description: "Track your mood and emotions",
+      icon: Heart,
+      color: "from-pink-500 to-rose-500",
+      link: "/check-in",
+    },
+    {
+      title: "Healing Journal",
+      description: "Document your healing journey",
+      icon: BookOpen,
+      color: "from-violet-500 to-purple-500",
+      link: "/journal",
+    },
+    {
+      title: "Guided Rituals",
+      description: "Personalized healing practices",
+      icon: Sparkles,
+      color: "from-blue-500 to-indigo-500",
+      link: "/rituals",
+    },
+    {
+      title: "AI Healing Companion",
+      description: "Supportive conversations anytime",
+      icon: Bot,
+      color: "from-cyan-500 to-blue-500",
+      link: "/healing-companion",
+    },
+    {
+      title: "Daily Affirmations",
+      description: "Positive reinforcement practices",
+      icon: Calendar,
+      color: "from-emerald-500 to-green-500",
+      link: "/affirmations",
+    },
+    {
+      title: "Mindfulness Meditation",
+      description: "Find your center and inner peace",
+      icon: Moon,
+      color: "from-indigo-500 to-purple-500",
+      link: "/rituals",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-6">
+      <div className="max-w-6xl mx-auto">
+        {/* Hero Welcome Section with Banner */}
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+          <div className="relative h-48 md:h-64 overflow-hidden">
+            <Image
+              src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              alt="Peaceful Nature"
+              fill
+              priority
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-900/70 to-blue-900/50 flex items-end p-8">
+              <h1 className="text-3xl md:text-4xl font-bold text-white drop-shadow-md">
+                Welcome back, <span className="text-blue-200">{userName}</span>
+              </h1>
+            </div>
+          </div>
+
+          <div className="p-8">
+            <p className="text-gray-600 mb-6 text-lg">
+              Your personal space for healing, growth, and self-discovery. How
+              are you feeling today?
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/healing-companion"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#7d55e6] to-[#38b6ff] text-white rounded-lg hover:opacity-90 transition-all shadow-md hover:shadow-lg hover:translate-y-[-2px]"
+              >
+                <Bot className="w-5 h-5" />
+                <span>Talk to your Healing Companion</span>
+              </Link>
+              <Link
+                href="/check-in"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-all hover:border-purple-200 hover:shadow-md"
+              >
+                <Heart className="w-5 h-5 text-pink-500" />
+                <span>Daily Check-in</span>
+              </Link>
+              <Link
+                href="/journal"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-all hover:border-blue-200 hover:shadow-md"
+              >
+                <BookOpen className="w-5 h-5 text-blue-500" />
+                <span>Write in Journal</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Wellness Status Card */}
+        <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-xl font-bold">Today's Wellness</h2>
+            <span className="text-sm text-gray-500">May 29, 2025</span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-100 rounded-xl p-4 flex items-center">
+              <div className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center mr-4">
+                <Sun className="w-6 h-6 text-amber-500" />
+              </div>
+              <div>
+                <h3 className="text-sm font-medium text-gray-600">Morning</h3>
+                <p className="text-lg font-semibold">Energized</p>
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-sky-100 rounded-xl p-4 flex items-center">
+              <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mr-4">
+                <Sun className="w-6 h-6 text-blue-500" />
+              </div>
+              <div>
+                <h3 className="text-sm font-medium text-gray-600">Afternoon</h3>
+                <p className="text-lg font-semibold">Focused</p>
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-indigo-100 rounded-xl p-4 flex items-center">
+              <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mr-4">
+                <Sunset className="w-6 h-6 text-purple-500" />
+              </div>
+              <div>
+                <h3 className="text-sm font-medium text-gray-600">Evening</h3>
+                <p className="text-lg font-semibold">Reflective</p>
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-gray-50 to-slate-100 rounded-xl p-4 flex items-center">
+              <div className="w-12 h-12 rounded-full bg-gray-500/20 flex items-center justify-center mr-4">
+                <Moon className="w-6 h-6 text-gray-500" />
+              </div>
+              <div>
+                <h3 className="text-sm font-medium text-gray-600">Night</h3>
+                <p className="text-lg font-semibold">Relaxed</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Features Grid with Enhanced Cards */}
+        <h2 className="text-2xl font-bold mb-4">Your Wellness Toolkit</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {features.map((feature, index) => (
+            <Link
+              key={index}
+              href={feature.link}
+              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden group hover:translate-y-[-3px] duration-300"
+            >
+              <div className="h-36 relative">
+                <Image
+                  src={getImageForFeature(feature.title)}
+                  alt={feature.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/50"></div>
+                <div
+                  className={`absolute top-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-r ${feature.color} flex items-center justify-center`}
+                >
+                  <feature.icon className="w-5 h-5 text-white" />
+                </div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3 className="text-xl font-bold text-white drop-shadow-md">
+                    {feature.title}
+                  </h3>
+                </div>
+              </div>
+              <div className="p-4">
+                <p className="text-gray-600 mb-4 text-sm">
+                  {feature.description}
+                </p>
+                <div className="flex items-center text-purple-600 group-hover:translate-x-1 transition-transform">
+                  <span className="font-medium text-sm">Explore</span>
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Progress Section with Visual Elements */}
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+          <div className="flex flex-col md:flex-row">
+            {/* Left column - Activity */}
+            <div className="flex-1 p-6 md:p-8">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-2xl font-bold">Your Healing Journey</h2>
+                <Link
+                  href="/journal"
+                  className="text-sm text-blue-600 hover:underline flex items-center"
+                >
+                  View all <ArrowRight className="ml-1 w-3 h-3" />
+                </Link>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg border border-pink-100">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-pink-400 to-pink-600 flex items-center justify-center flex-shrink-0">
+                    <Heart className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <p className="font-medium">Daily Check-in Completed</p>
+                        <p className="text-sm text-gray-500">Today, 9:30 AM</p>
+                      </div>
+                      <span className="text-xs font-medium px-2 py-1 bg-green-100 text-green-800 rounded-full">
+                        Completed
+                      </span>
+                    </div>
+                    <div className="mt-2 bg-white px-3 py-2 rounded-md text-sm italic text-gray-600 border-l-2 border-pink-400">
+                      "Feeling optimistic and energized today. Looking forward
+                      to new possibilities."
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-100">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center flex-shrink-0">
+                    <Bot className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <p className="font-medium">Healing Companion Session</p>
+                        <p className="text-sm text-gray-500">
+                          Yesterday, 8:15 PM
+                        </p>
+                      </div>
+                      <span className="text-xs font-medium px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
+                        20 min
+                      </span>
+                    </div>
+                    <div className="mt-2 bg-white px-3 py-2 rounded-md text-sm italic text-gray-600 border-l-2 border-blue-400">
+                      "Discussed challenges and received personalized guidance."
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-violet-50 to-purple-50 rounded-lg border border-violet-100">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-violet-400 to-violet-600 flex items-center justify-center flex-shrink-0">
+                    <BookOpen className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <p className="font-medium">Journal Entry</p>
+                        <p className="text-sm text-gray-500">
+                          Yesterday, 7:45 PM
+                        </p>
+                      </div>
+                      <span className="text-xs font-medium px-2 py-1 bg-purple-100 text-purple-800 rounded-full">
+                        Reflective
+                      </span>
+                    </div>
+                    <div className="mt-2 bg-white px-3 py-2 rounded-md text-sm italic text-gray-600 border-l-2 border-purple-400">
+                      "Today I realized how far I've come in my healing
+                      journey..."
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right column - Visual chart/progress */}
+            <div className="flex-1 bg-blue-50 p-6 md:p-8 relative overflow-hidden">
+              <div className="relative z-10">
+                <h3 className="text-lg font-semibold mb-4">
+                  Wellness Progress
+                </h3>
+                <div className="mb-6">
+                  <div className="flex justify-between text-sm mb-1">
+                    <span>Emotional Balance</span>
+                    <span className="font-medium">78%</span>
+                  </div>
+                  <div className="h-3 bg-blue-100 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"
+                      style={{ width: "78%" }}
+                    ></div>
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <div className="flex justify-between text-sm mb-1">
+                    <span>Mindfulness</span>
+                    <span className="font-medium">65%</span>
+                  </div>
+                  <div className="h-3 bg-blue-100 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-purple-400 to-purple-600 rounded-full"
+                      style={{ width: "65%" }}
+                    ></div>
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <div className="flex justify-between text-sm mb-1">
+                    <span>Energy Levels</span>
+                    <span className="font-medium">82%</span>
+                  </div>
+                  <div className="h-3 bg-blue-100 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-green-400 to-green-600 rounded-full"
+                      style={{ width: "82%" }}
+                    ></div>
+                  </div>
+                </div>
+
+                <Link
+                  href="/check-in"
+                  className="mt-2 text-sm text-blue-600 hover:underline flex items-center"
+                >
+                  View detailed insights <ArrowRight className="ml-1 w-3 h-3" />
+                </Link>
+              </div>
+
+              {/* Background decorative elements */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-200 rounded-full opacity-20 transform translate-x-1/3 -translate-y-1/3"></div>
+              <div className="absolute bottom-0 right-0 w-40 h-40 bg-purple-200 rounded-full opacity-20 transform translate-x-1/3 translate-y-1/3"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Daily Wisdom & Affirmations Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          {/* Affirmation card */}
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="h-48 relative">
+              <Image
+                src="https://images.unsplash.com/photo-1535957998253-26ae1ef29506?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1736&q=80"
+                alt="Peaceful nature"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent flex items-end">
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-1">
+                    Today's Affirmation
+                  </h3>
+                  <p className="text-blue-100 text-sm">Refresh your mindset</p>
+                </div>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="mb-4 text-lg italic text-center border-l-4 pl-4 border-blue-400">
+                "I am at peace with my past, present, and future. I embrace the
+                journey of healing and growth."
+              </div>
+              <Link
+                href="/affirmations"
+                className="w-full py-3 flex items-center justify-center gap-2 text-center bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:opacity-90 transition-opacity text-sm font-medium"
+              >
+                <Calendar className="w-4 h-4" />
+                <span>Get Daily Affirmations</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Guided meditation card */}
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="h-48 relative">
+              <Image
+                src="https://images.unsplash.com/photo-1532798442725-41036acc7489?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1774&q=80"
+                alt="Meditation"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent flex items-end">
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-1">
+                    Guided Meditation
+                  </h3>
+                  <p className="text-green-100 text-sm">
+                    Recenter and calm your mind
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h4 className="font-medium">Calming Breathwork</h4>
+                  <p className="text-sm text-gray-500">
+                    10 minutes • Stress Relief
+                  </p>
+                </div>
+                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center cursor-pointer hover:shadow-lg transition-shadow">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-white"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <Link
+                href="/rituals"
+                className="w-full py-3 flex items-center justify-center gap-2 text-center bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm font-medium"
+              >
+                <Sparkles className="w-4 h-4" />
+                <span>Explore Guided Rituals</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Wellness Tips Section */}
+        <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 mb-8">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold">Wellness Tips for You</h2>
+            <button className="text-blue-600 hover:underline text-sm flex items-center">
+              View all <ArrowRight className="w-3 h-3 ml-1" />
+            </button>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+              <div className="h-32 relative">
+                <Image
+                  src={getImageForWellnessTip("Energizing Morning Routine")}
+                  alt="Energizing Morning Routine"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 p-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center mb-1">
+                    <Zap className="w-5 h-5 text-white" />
+                  </div>
+                </div>
+              </div>
+              <div className="p-4">
+                <h3 className="font-semibold mb-2">
+                  Energizing Morning Routine
+                </h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Start your day with intention through a simple 5-minute
+                  energizing routine.
+                </p>
+                <Link
+                  href="/rituals"
+                  className="text-amber-600 text-sm hover:underline flex items-center"
+                >
+                  Learn more <ArrowRight className="w-3 h-3 ml-1" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+              <div className="h-32 relative">
+                <Image
+                  src={getImageForWellnessTip("Better Sleep Habits")}
+                  alt="Better Sleep Habits"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 p-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center mb-1">
+                    <Moon className="w-5 h-5 text-white" />
+                  </div>
+                </div>
+              </div>
+              <div className="p-4">
+                <h3 className="font-semibold mb-2">Better Sleep Habits</h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Simple techniques to improve sleep quality and wake up
+                  refreshed.
+                </p>
+                <Link
+                  href="/rituals"
+                  className="text-blue-600 text-sm hover:underline flex items-center"
+                >
+                  Learn more <ArrowRight className="w-3 h-3 ml-1" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+              <div className="h-32 relative">
+                <Image
+                  src={getImageForWellnessTip("Mood Enhancement")}
+                  alt="Mood Enhancement"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 p-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-green-500 flex items-center justify-center mb-1">
+                    <TrendingUp className="w-5 h-5 text-white" />
+                  </div>
+                </div>
+              </div>
+              <div className="p-4">
+                <h3 className="font-semibold mb-2">Mood Enhancement</h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Natural methods to boost your mood and maintain emotional
+                  balance.
+                </p>
+                <Link
+                  href="/rituals"
+                  className="text-emerald-600 text-sm hover:underline flex items-center"
+                >
+                  Learn more <ArrowRight className="w-3 h-3 ml-1" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+              <div className="h-32 relative">
+                <Image
+                  src={getImageForWellnessTip("Mindful Meditation")}
+                  alt="Mindful Meditation"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 p-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-violet-500 flex items-center justify-center mb-1">
+                    <Sparkles className="w-5 h-5 text-white" />
+                  </div>
+                </div>
+              </div>
+              <div className="p-4">
+                <h3 className="font-semibold mb-2">Mindful Meditation</h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Strengthen your mind-body connection with guided mindfulness
+                  practices.
+                </p>
+                <Link
+                  href="/rituals"
+                  className="text-purple-600 text-sm hover:underline flex items-center"
+                >
+                  Learn more <ArrowRight className="w-3 h-3 ml-1" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+              <div className="h-32 relative">
+                <Image
+                  src={getImageForWellnessTip("Nutritional Wellness")}
+                  alt="Nutritional Wellness"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 p-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center mb-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M11 4c4.42 0 8 3.58 8 8 0 4.42-3.58 8-8 8-4.42 0-8-3.58-8-8 0-4.42 3.58-8 8-8z"></path>
+                      <path d="M11 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
+                      <path d="M11 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
+                      <path d="M11 19a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div className="p-4">
+                <h3 className="font-semibold mb-2">Nutritional Wellness</h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Foods and eating habits that support your healing journey and
+                  overall wellness.
+                </p>
+                <Link
+                  href="/rituals"
+                  className="text-teal-600 text-sm hover:underline flex items-center"
+                >
+                  Learn more <ArrowRight className="w-3 h-3 ml-1" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+              <div className="h-32 relative">
+                <Image
+                  src={getImageForWellnessTip("Self-Care Practices")}
+                  alt="Self-Care Practices"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 p-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center mb-1">
+                    <Heart className="w-5 h-5 text-white" />
+                  </div>
+                </div>
+              </div>
+              <div className="p-4">
+                <h3 className="font-semibold mb-2">Self-Care Practices</h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Essential rituals to nurture your mind, body, and spirit
+                  daily.
+                </p>
+                <Link
+                  href="/rituals"
+                  className="text-rose-600 text-sm hover:underline flex items-center"
+                >
+                  Learn more <ArrowRight className="w-3 h-3 ml-1" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Community Inspiration */}
+        <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl shadow-lg p-6 md:p-8 mb-6 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-200 rounded-full opacity-30 transform translate-x-1/3 -translate-y-1/3"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-200 rounded-full opacity-20 transform -translate-x-1/3 translate-y-1/3"></div>
+
+          <div className="relative z-10">
+            <h2 className="text-2xl font-bold mb-2">
+              Your Healing Journey Companion
+            </h2>
+            <p className="text-gray-600 mb-6 max-w-3xl">
+              Our AI healing companion is here to support your wellness journey
+              with personalized guidance, reflective conversations, and
+              mindfulness practices.
+            </p>
+            <Link
+              href="/healing-companion"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#7d55e6] to-[#38b6ff] text-white rounded-lg hover:opacity-90 transition-all shadow-md hover:shadow-xl"
+            >
+              <MessageCircle className="w-5 h-5" />
+              <span>Start a Healing Conversation</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DashboardPage;

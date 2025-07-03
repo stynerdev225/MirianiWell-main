@@ -1,0 +1,20 @@
+/* Logo animation */
+@keyframes logoEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-entrance {
+  animation: logoEntrance 0.5s ease-out forwards;
+}
+
+/* Navbar background subtle gradient */
+.navbar-gradient {
+  background-image: linear-gradient(to right, rgba(255,255,255,0.95), rgba(249,250,251,0.95));
+}

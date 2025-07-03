@@ -1,0 +1,20 @@
+name = "miriani-well"
+compatibility_date = "2024-01-01"
+
+[env.production]
+name = "miriani-well"
+migrations_dir = "drizzle"
+
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "miriani-well-db"
+database_id = "c9327d58-08e0-4ea3-ba02-f2d80d9f9d47"
+
+[env.development]
+name = "miriani-well-dev"
+migrations_dir = "drizzle"
+
+[[env.development.d1_databases]]
+binding = "DB"
+database_name = "miriani-well-db"
+database_id = "c9327d58-08e0-4ea3-ba02-f2d80d9f9d47"

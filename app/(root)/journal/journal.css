@@ -1,0 +1,21 @@
+/* Journal page specific styles */
+.journal-seasonal-hub {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
+    url("https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=1200&h=400&fit=crop&crop=center");
+  background-size: cover;
+  background-position: center;
+}
+
+.journal-mindfulness-corner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+    url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=400&fit=crop&crop=center");
+  background-size: cover;
+  background-position: center;
+}
+
+.journal-community-hub {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
+    url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&h=400&fit=crop&crop=center");
+  background-size: cover;
+  background-position: center;
+}

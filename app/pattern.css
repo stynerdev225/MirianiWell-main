@@ -1,0 +1,21 @@
+.pattern {
+  background-color: #ffffff;
+  background-image: url("/pattern.png");
+  background-repeat: repeat;
+  background-size: 400px;
+  background-opacity: 0.1;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25%);
+  }
+}

@@ -1,0 +1,166 @@
+/* Insert logo before the header title */
+.cl-card::before {
+  content: "" !important;
+  display: block !important;
+  background-image: url("/logo.png") !important;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  width: 160px !important; /* Increased from 120px to 160px */
+  height: 160px !important; /* Increased from 120px to 160px */
+  margin: 0 auto !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Custom styles to center "Email address or username" label */
+.cl-formFieldLabel:has([for="identifier"]) {
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.75rem !important;
+  font-size: 1.05rem !important;
+}
+
+/* Better styling for the Continue button */
+.cl-formButtonPrimary {
+  max-width: 250px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  background: linear-gradient(to right, #7d55e6, #38b6ff) !important;
+  border-radius: 100px !important;
+  padding: 12px 24px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 12px rgba(56, 182, 255, 0.25) !important;
+}
+
+.cl-formButtonPrimary:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 7px 14px rgba(56, 182, 255, 0.3) !important;
+  filter: brightness(1.05) !important;
+}
+
+.cl-formField {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* Input field styling */
+.cl-formFieldInput {
+  text-align: center !important;
+  transition: all 0.2s ease-in-out !important;
+  border-width: 2px !important;
+}
+
+.cl-formFieldInput:focus {
+  border-color: #38b6ff !important;
+  box-shadow: 0 0 0 3px rgba(56, 182, 255, 0.1) !important;
+}
+
+/* Card styling */
+.cl-card {
+  border-radius: 16px !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
+  padding: 32px 28px !important; /* Increase padding inside card */
+  width: 100% !important;
+  max-width: 480px !important; /* Make card wider */
+}
+
+/* Social divider styling */
+.cl-dividerLine {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  margin: 0.5rem 0 !important; /* Further reduce vertical margin of the divider */
+}
+
+.cl-dividerText {
+  background-color: white !important;
+  padding: 0 12px !important;
+  font-size: 14px !important;
+  color: #666 !important;
+  margin-top: -4px !important; /* Adjust "or" text position */
+}
+
+/* Additional custom styles for better alignment */
+.cl-identityPreview {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.cl-headerTitle,
+.cl-headerSubtitle,
+.cl-footerAction {
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.cl-headerTitle {
+  font-size: 1.5rem !important;
+  color: #333 !important;
+  margin-bottom: 8px !important;
+}
+
+.cl-headerSubtitle {
+  color: #666 !important;
+  margin-bottom: 24px !important;
+}
+
+.cl-formFieldRow {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+/* Target the specific label text */
+.cl-internal-b3fm6y {
+  text-align: center !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+/* Social buttons styling */
+.cl-socialButtons {
+  margin-top: -8px !important; /* Reduce top margin to move social buttons higher */
+  display: flex !important;
+  justify-content: center !important;
+  gap: 16px !important; /* Add more space between icons */
+}
+
+.cl-socialButtonsBlockButton,
+.cl-socialButtonsIconButton {
+  border-radius: 12px !important;
+  transition: all 0.2s ease !important;
+  margin-top: -8px !important; /* Reduce top margin to move icons higher */
+  transform: scale(1.25) !important; /* Make icons 25% bigger */
+  width: 48px !important;
+  height: 48px !important;
+}
+
+/* Adjust the size of social icons inside the buttons */
+.cl-socialButtonsIconButton svg,
+.cl-socialButtonsBlockButton svg {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+/* Sign up link styling */
+.cl-footerActionLink {
+  color: #38b6ff !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.cl-footerActionLink:hover {
+  text-decoration: underline !important;
+  color: #0cc0df !important;
+}
+
+.cl-footer {
+  margin-top: 24px !important; /* Add more space before footer */
+  padding-bottom: 8px !important; /* Add padding at bottom */
+}
