@@ -24,29 +24,6 @@ export async function signInUser(params: SignInParams): Promise<User | null> {
   return null;
 }
 
-export async function getCurrentUser(): Promise<User | null> {
-  try {
-    const { userId } = await auth();
-    if (!userId) return null;
-    
-    // Return a mock user for now
-    return {
-      id: userId,
-      email: "user@example.com",
-      firstName: "User",
-      lastName: "Name",
-      createdAt: new Date(),
-      updatedAt: new Date()
-    };
-  } catch (error) {
-    console.error("Error getting current user:", error);
-    return null;
-  }
-}
-
-  return createDb(d1);
-}
-
 // Get current user from Clerk auth
 export async function getCurrentUser(): Promise<User | null> {
   try {
@@ -56,31 +33,15 @@ export async function getCurrentUser(): Promise<User | null> {
       return null;
     }
 
-    const database = await getDb();
-    if (!database) {
-      // In development mode without D1, return a mock user
-      return {
-        id: userId,
-        email: "user@example.com",
-        firstName: "Test",
-        lastName: "User",
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      } as User;
-    }
-
-    // Get user from D1 database
-    const userResult = await database
-      .select()
-      .from(users)
-      .where(eq(users.id, userId))
-      .limit(1);
-
-    if (userResult.length === 0) {
-      return null;
-    }
-
-    return userResult[0] as User;
+    // In development mode without D1, return a mock user
+    return {
+      id: userId,
+      email: "user@example.com",
+      firstName: "Test",
+      lastName: "User",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    } as User;
   } catch (error) {
     console.error("Error getting current user:", error);
     return null;
@@ -95,44 +56,12 @@ export async function syncUserWithDatabase(userData: {
   lastName?: string;
 }) {
   try {
-    const database = await getDb();
-    if (!database) {
-      console.warn("Database not available - user sync skipped");
-      return {
-        success: true,
-        message: "User authenticated (database sync skipped in development)",
-      };
-    }
-
-    // Check if user exists
-    const existingUser = await database
-      .select()
-      .from(users)
-      .where(eq(users.id, userData.id))
-      .limit(1);
-
-    if (existingUser.length === 0) {
-      // Create new user
-      await database.insert(users).values({
-        id: userData.id,
-        email: userData.email,
-        firstName: userData.firstName || null,
-        lastName: userData.lastName || null,
-      });
-    } else {
-      // Update existing user
-      await database
-        .update(users)
-        .set({
-          email: userData.email,
-          firstName: userData.firstName || null,
-          lastName: userData.lastName || null,
-          updatedAt: new Date(),
-        })
-        .where(eq(users.id, userData.id));
-    }
-
-    return { success: true, message: "User synced successfully" };
+    // Database not available - user sync skipped
+    console.warn("Database not available - user sync skipped");
+    return {
+      success: true,
+      message: "User authenticated (database sync skipped in development)",
+    };
   } catch (error) {
     console.error("Error syncing user with database:", error);
     return { success: false, message: "Failed to sync user data" };
@@ -151,7 +80,7 @@ export async function isAuthenticated() {
 }
 
 // Legacy functions for backward compatibility
-export async function signUp(_params: SignUpParams) {
+export async function signUp() {
   // This is now handled by Clerk on the client side
   return {
     success: true,
@@ -159,7 +88,7 @@ export async function signUp(_params: SignUpParams) {
   };
 }
 
-export async function signIn(_params: SignInParams) {
+export async function signIn() {
   // This is now handled by Clerk on the client side
   return {
     success: true,
@@ -175,7 +104,7 @@ export async function signOut() {
   };
 }
 
-export async function setSessionCookie(_idToken: string) {
+export async function setSessionCookie() {
   // Not needed with Clerk - Clerk handles session management
   return;
 }

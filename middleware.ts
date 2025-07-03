@@ -11,12 +11,12 @@ const isPublicRoute = createRouteMatcher([
 export default clerkMiddleware(async (auth, req) => {
   // Check if Clerk keys are available
   const hasClerkKeys = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-  
+
   if (!hasClerkKeys) {
     // If no Clerk keys, skip auth protection
     return;
   }
-  
+
   // If the route is not public, protect it
   if (!isPublicRoute(req)) {
     await auth.protect();

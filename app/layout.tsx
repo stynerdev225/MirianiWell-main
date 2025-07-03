@@ -57,7 +57,7 @@ export default function RootLayout({
 }>) {
   // Check if Clerk keys are available
   const hasClerkKeys = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-  
+
   if (!hasClerkKeys) {
     // If no Clerk keys, render without ClerkProvider
     return (
@@ -74,7 +74,7 @@ export default function RootLayout({
       </html>
     );
   }
-  
+
   return (
     <ClerkProvider
       appearance={{
