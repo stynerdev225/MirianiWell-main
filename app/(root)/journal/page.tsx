@@ -28,50 +28,50 @@ const JournalPage = async () => {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 p-6">
-        <div className="max-w-4xl mx-auto">
+      <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 p-3 sm:p-4 md:p-6">
+        <div className="w-full max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm mb-4">
-              <BookOpen className="w-5 h-5 text-green-500" />
-              <span className="text-sm font-medium text-gray-700">
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-white rounded-full shadow-sm mb-3 sm:mb-4">
+              <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
+              <span className="text-xs sm:text-sm font-medium text-gray-700">
                 Sacred Journal
               </span>
             </div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
               Your Sacred Journal
             </h1>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
               A safe space for reflection, growth, and self-discovery through
               mindful writing
             </p>
           </div>
 
           {/* New Entry Section */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-            <div className="flex items-center gap-2 mb-6">
-              <Feather className="w-5 h-5 text-purple-500" />
-              <h2 className="text-xl font-semibold text-gray-900">
+          <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-4 sm:mb-6 md:mb-8">
+            <div className="flex items-center gap-2 mb-3 sm:mb-4 md:mb-6">
+              <Feather className="w-4 h-4 sm:w-5 sm:h-5 text-purple-500" />
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
                 Create New Entry
               </h2>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <input
                 type="text"
                 placeholder="Give your entry a title..."
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm sm:text-base"
               />
               <textarea
                 placeholder="What's on your heart today? Write freely, without judgment..."
-                rows={8}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
+                rows={6}
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none text-sm sm:text-base"
               />
-              <div className="flex gap-3">
-                <button className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium">
+              <div className="flex flex-col xs:flex-row gap-2 sm:gap-3">
+                <button className="px-4 sm:px-6 py-2 sm:py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium text-sm sm:text-base">
                   Save Entry
                 </button>
-                <button className="px-6 py-3 border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium">
+                <button className="px-4 sm:px-6 py-2 sm:py-3 border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm sm:text-base">
                   Save as Draft
                 </button>
               </div>
@@ -79,15 +79,15 @@ const JournalPage = async () => {
           </div>
 
           {/* Journal Prompts */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-            <div className="flex items-center gap-2 mb-6">
-              <Heart className="w-5 h-5 text-pink-500" />
-              <h2 className="text-xl font-semibold text-gray-900">
+          <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-4 sm:mb-6 md:mb-8">
+            <div className="flex items-center gap-2 mb-3 sm:mb-4 md:mb-6">
+              <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-pink-500" />
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
                 Today&apos;s Reflection Prompts
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {[
                 "What am I grateful for in this moment?",
                 "How did I show myself kindness today?",
@@ -98,10 +98,10 @@ const JournalPage = async () => {
               ].map((prompt, index) => (
                 <div
                   key={index}
-                  className="p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-100 hover:shadow-md transition-shadow cursor-pointer"
+                  className="p-3 sm:p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-100 hover:shadow-md transition-shadow cursor-pointer"
                 >
-                  <p className="text-gray-700 italic">&ldquo;{prompt}&rdquo;</p>
-                  <button className="mt-2 text-sm text-purple-600 hover:text-purple-700 font-medium">
+                  <p className="text-gray-700 italic text-sm sm:text-base">&ldquo;{prompt}&rdquo;</p>
+                  <button className="mt-2 text-xs sm:text-sm text-purple-600 hover:text-purple-700 font-medium">
                     Write about this →
                   </button>
                 </div>
@@ -113,27 +113,27 @@ const JournalPage = async () => {
           <AIInsightsComponent journalEntries={journalEntries} />
 
           {/* Decorative Separator */}
-          <div className="flex items-center justify-center my-10">
+          <div className="flex items-center justify-center my-6 sm:my-8 md:my-10">
             <div className="h-0.5 bg-gradient-to-r from-transparent via-purple-200 to-transparent w-1/3"></div>
-            <div className="mx-4">
-              <Camera className="w-6 h-6 text-purple-400" />
+            <div className="mx-3 sm:mx-4">
+              <Camera className="w-5 h-5 sm:w-6 sm:h-6 text-purple-400" />
             </div>
             <div className="h-0.5 bg-gradient-to-r from-transparent via-purple-200 to-transparent w-1/3"></div>
           </div>
 
           {/* Visual Journal Gallery */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8 transform transition-transform hover:scale-[1.01]">
-            <div className="flex items-center gap-2 mb-6">
-              <Camera className="w-5 h-5 text-emerald-500" />
-              <h2 className="text-xl font-semibold text-gray-900">
+          <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-4 sm:mb-6 md:mb-8 transform transition-transform hover:scale-[1.01]">
+            <div className="flex items-center gap-2 mb-3 sm:mb-4 md:mb-6">
+              <Camera className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500" />
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
                 Visual Journal Gallery
               </h2>
             </div>
-            <p className="text-gray-600 mb-6 italic border-l-4 border-emerald-200 pl-3 py-1">
+            <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 md:mb-6 italic border-l-4 border-emerald-200 pl-3 py-1">
               Capture moments and memories that inspire your writing journey
             </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 mb-3 sm:mb-4 md:mb-6">
               {[
                 "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop&crop=center",
                 "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=300&fit=crop&crop=center",
@@ -152,74 +152,74 @@ const JournalPage = async () => {
                     height={200}
                   />
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <button className="px-3 py-1 bg-white text-gray-800 rounded text-sm font-medium">
+                    <button className="px-2 sm:px-3 py-1 bg-white text-gray-800 rounded text-xs sm:text-sm font-medium">
                       Add to Entry
-                    </button>{" "}
+                    </button>
                   </div>
                 </div>
               ))}
             </div>
 
-            <button className="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-emerald-500 hover:text-emerald-600 transition-colors flex items-center justify-center gap-2 hover:bg-emerald-50">
-              <Plus className="w-4 h-4" /> Add Your Own Photos
+            <button className="w-full py-2 sm:py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-emerald-500 hover:text-emerald-600 transition-colors flex items-center justify-center gap-2 hover:bg-emerald-50 text-sm sm:text-base">
+              <Plus className="w-3 h-3 sm:w-4 sm:h-4" /> Add Your Own Photos
             </button>
           </div>
 
           {/* Writing Goals & Progress */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-            <div className="flex items-center gap-2 mb-6">
-              <Target className="w-5 h-5 text-orange-500" />
-              <h2 className="text-xl font-semibold text-gray-900">
+          <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-4 sm:mb-6 md:mb-8">
+            <div className="flex items-center gap-2 mb-3 sm:mb-4 md:mb-6">
+              <Target className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500" />
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
                 Writing Goals & Progress
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center p-6 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-orange-600">7</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+              <div className="text-center p-4 sm:p-6 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <span className="text-xl sm:text-2xl font-bold text-orange-600">7</span>
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">
+                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">
                   Days Streak
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-600 text-xs sm:text-sm">
                   Keep up the amazing consistency!
                 </p>
               </div>
 
-              <div className="text-center p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-blue-600">24</span>
+              <div className="text-center p-4 sm:p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <span className="text-xl sm:text-2xl font-bold text-blue-600">24</span>
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">
+                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">
                   Total Entries
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-600 text-xs sm:text-sm">
                   Your journal is growing beautifully
                 </p>
               </div>
 
-              <div className="text-center p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-purple-600">
+              <div className="text-center p-4 sm:p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <span className="text-xl sm:text-2xl font-bold text-purple-600">
                     12k
                   </span>
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">
+                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">
                   Words Written
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-600 text-xs sm:text-sm">
                   Every word matters in your journey
                 </p>
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+            <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-gray-50 rounded-lg">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-gray-700">
+                <span className="text-xs sm:text-sm font-medium text-gray-700">
                   Monthly Goal: 30 entries
                 </span>
-                <span className="text-sm text-gray-500">24/30</span>
+                <span className="text-xs sm:text-sm text-gray-500">24/30</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
                 <div className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full w-4/5"></div>
@@ -228,19 +228,19 @@ const JournalPage = async () => {
           </div>
 
           {/* Mood & Emotion Tracker */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-            <div className="flex items-center gap-2 mb-6">
-              <Heart className="w-5 h-5 text-rose-500" />
-              <h2 className="text-xl font-semibold text-gray-900">
+          <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-4 sm:mb-6 md:mb-8">
+            <div className="flex items-center gap-2 mb-3 sm:mb-4 md:mb-6">
+              <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-rose-500" />
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
                 Daily Mood & Emotion Tracker
               </h2>
             </div>
-            <p className="text-gray-600 mb-6">
+            <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 md:mb-6">
               Track your emotional journey and identify patterns in your
               feelings
             </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 mb-3 sm:mb-4 md:mb-6">
               {[
                 {
                   emoji: "☀️",
@@ -279,7 +279,7 @@ const JournalPage = async () => {
                   key={index}
                   className="relative group rounded-lg overflow-hidden cursor-pointer transition-transform hover:scale-105"
                 >
-                  <div className="relative h-32">
+                  <div className="relative h-24 sm:h-32">
                     <Image
                       src={mood.image}
                       alt={mood.mood}
@@ -294,67 +294,67 @@ const JournalPage = async () => {
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
                       <div
                         aria-hidden="true"
-                        className="emoji-container mb-1.5"
+                        className="emoji-container mb-1 text-base sm:text-lg"
                       >
                         {mood.emoji}
                       </div>
-                      <span className="mood-text">{mood.mood}</span>
+                      <span className="mood-text text-xs sm:text-sm">{mood.mood}</span>
                     </div>
                   </div>
-                  <div className="p-3 bg-white">
-                    <p className="count-text text-center">{mood.description}</p>
+                  <div className="p-2 sm:p-3 bg-white">
+                    <p className="count-text text-center text-xs sm:text-sm">{mood.description}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="flex items-center justify-between p-4 bg-gradient-to-r from-rose-50 to-pink-50 rounded-lg">
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-1">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 sm:p-4 bg-gradient-to-r from-rose-50 to-pink-50 rounded-lg">
+              <div className="mb-2 sm:mb-0">
+                <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">
                   Today&apos;s Mood
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-xs sm:text-sm text-gray-600">
                   How are you feeling right now?
                 </p>
               </div>
-              <button className="px-4 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600 transition-colors text-sm font-medium">
+              <button className="px-3 sm:px-4 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600 transition-colors text-xs sm:text-sm font-medium">
                 Log Mood
               </button>
             </div>
           </div>
 
           {/* Seasonal Wellness Hub */}
-          <div className="journal-seasonal-hub rounded-2xl shadow-lg p-8 mb-8 text-white relative overflow-hidden">
+          <div className="journal-seasonal-hub rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-4 sm:mb-6 md:mb-8 text-white relative overflow-hidden">
             <div className="relative z-10">
-              <div className="flex items-center gap-2 mb-6">
-                <Star className="w-6 h-6" />
-                <h2 className="text-xl font-semibold">Seasonal Wellness Hub</h2>
+              <div className="flex items-center gap-2 mb-3 sm:mb-4 md:mb-6">
+                <Star className="w-5 h-5 sm:w-6 sm:h-6" />
+                <h2 className="text-lg sm:text-xl font-semibold">Seasonal Wellness Hub</h2>
               </div>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="backdrop-blur-sm bg-white/10 p-6 rounded-lg border border-white/20">
-                  <h3 className="font-semibold mb-3">🍂 Autumn Reflections</h3>
-                  <p className="text-white/90 text-sm mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
+                <div className="backdrop-blur-sm bg-white/10 p-4 sm:p-6 rounded-lg border border-white/20">
+                  <h3 className="font-semibold mb-2 sm:mb-3 text-sm sm:text-base">🍂 Autumn Reflections</h3>
+                  <p className="text-white/90 text-xs sm:text-sm mb-3 sm:mb-4">
                     Embrace change and transformation like the falling leaves
                   </p>
-                  <button className="text-sm text-white border border-white/50 px-3 py-2 rounded hover:bg-white/20 transition-colors">
+                  <button className="text-xs sm:text-sm text-white border border-white/50 px-2 sm:px-3 py-1 sm:py-2 rounded hover:bg-white/20 transition-colors">
                     Explore Prompts
                   </button>
                 </div>
-                <div className="backdrop-blur-sm bg-white/10 p-6 rounded-lg border border-white/20">
-                  <h3 className="font-semibold mb-3">🌱 Growth Mindset</h3>
-                  <p className="text-white/90 text-sm mb-4">
+                <div className="backdrop-blur-sm bg-white/10 p-4 sm:p-6 rounded-lg border border-white/20">
+                  <h3 className="font-semibold mb-2 sm:mb-3 text-sm sm:text-base">🌱 Growth Mindset</h3>
+                  <p className="text-white/90 text-xs sm:text-sm mb-3 sm:mb-4">
                     Document your personal development journey
                   </p>
-                  <button className="text-sm text-white border border-white/50 px-3 py-2 rounded hover:bg-white/20 transition-colors">
+                  <button className="text-xs sm:text-sm text-white border border-white/50 px-2 sm:px-3 py-1 sm:py-2 rounded hover:bg-white/20 transition-colors">
                     Start Writing
                   </button>
                 </div>
-                <div className="backdrop-blur-sm bg-white/10 p-6 rounded-lg border border-white/20">
-                  <h3 className="font-semibold mb-3">🎯 Intention Setting</h3>
-                  <p className="text-white/90 text-sm mb-4">
+                <div className="backdrop-blur-sm bg-white/10 p-4 sm:p-6 rounded-lg border border-white/20">
+                  <h3 className="font-semibold mb-2 sm:mb-3 text-sm sm:text-base">🎯 Intention Setting</h3>
+                  <p className="text-white/90 text-xs sm:text-sm mb-3 sm:mb-4">
                     Set meaningful intentions for the season ahead
                   </p>
-                  <button className="text-sm text-white border border-white/50 px-3 py-2 rounded hover:bg-white/20 transition-colors">
+                  <button className="text-xs sm:text-sm text-white border border-white/50 px-2 sm:px-3 py-1 sm:py-2 rounded hover:bg-white/20 transition-colors">
                     Set Intentions
                   </button>
                 </div>
@@ -363,19 +363,19 @@ const JournalPage = async () => {
           </div>
 
           {/* Creative Expression Gallery */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-            <div className="flex items-center gap-2 mb-6">
-              <Lightbulb className="w-5 h-5 text-amber-500" />
-              <h2 className="text-xl font-semibold text-gray-900">
+          <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-4 sm:mb-6 md:mb-8">
+            <div className="flex items-center gap-2 mb-3 sm:mb-4 md:mb-6">
+              <Lightbulb className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500" />
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
                 Creative Expression Gallery
               </h2>
             </div>
-            <p className="text-gray-600 mb-6">
+            <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 md:mb-6">
               Explore different creative outlets to enhance your journaling
               practice
             </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 mb-3 sm:mb-4 md:mb-6">
               {[
                 {
                   title: "Art Journaling",
@@ -419,13 +419,13 @@ const JournalPage = async () => {
                       height={200}
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <div className="text-center text-white p-4">
-                        <h3 className="font-semibold text-sm mb-2">
+                      <div className="text-center text-white p-2 sm:p-4">
+                        <h3 className="font-semibold text-xs sm:text-sm mb-1 sm:mb-2">
                           {item.title}
                         </h3>
-                        <p className="text-xs mb-3">{item.description}</p>
+                        <p className="text-xs mb-2 sm:mb-3">{item.description}</p>
                         <button
-                          className={`px-3 py-1 ${item.color} text-white rounded text-xs font-medium`}
+                          className={`px-2 sm:px-3 py-1 ${item.color} text-white rounded text-xs font-medium`}
                         >
                           Try Now
                         </button>
@@ -436,26 +436,26 @@ const JournalPage = async () => {
               ))}
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-100">
-                <h3 className="font-semibold text-gray-900 mb-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div className="p-3 sm:p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-100">
+                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">
                   Weekly Art Challenge
                 </h3>
-                <p className="text-gray-600 text-sm mb-3">
+                <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3">
                   Create a visual representation of your week&apos;s emotions
                 </p>
-                <button className="text-sm text-purple-600 hover:text-purple-700 font-medium">
+                <button className="text-xs sm:text-sm text-purple-600 hover:text-purple-700 font-medium">
                   Start Challenge →
                 </button>
               </div>
-              <div className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-100">
-                <h3 className="font-semibold text-gray-900 mb-2">
+              <div className="p-3 sm:p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-100">
+                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">
                   Collaborative Stories
                 </h3>
-                <p className="text-gray-600 text-sm mb-3">
+                <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3">
                   Join community writing prompts and shared narratives
                 </p>
-                <button className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+                <button className="text-xs sm:text-sm text-blue-600 hover:text-blue-700 font-medium">
                   Join Community →
                 </button>
               </div>
@@ -463,47 +463,47 @@ const JournalPage = async () => {
           </div>
 
           {/* Mindfulness & Meditation Corner */}
-          <div className="journal-mindfulness-corner rounded-2xl shadow-lg p-8 mb-8 text-white relative overflow-hidden">
+          <div className="journal-mindfulness-corner rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-4 sm:mb-6 md:mb-8 text-white relative overflow-hidden">
             <div className="relative z-10">
-              <div className="flex items-center gap-2 mb-6">
-                <Brain className="w-6 h-6" />
-                <h2 className="text-xl font-semibold">
+              <div className="flex items-center gap-2 mb-3 sm:mb-4 md:mb-6">
+                <Brain className="w-5 h-5 sm:w-6 sm:h-6" />
+                <h2 className="text-lg sm:text-xl font-semibold">
                   Mindfulness & Meditation Corner
                 </h2>
               </div>
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
                 <div>
-                  <h3 className="text-lg font-semibold mb-4">
+                  <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
                     🧘‍♀️ Pre-Writing Meditation
                   </h3>
-                  <p className="text-white/90 mb-6">
+                  <p className="text-white/90 text-xs sm:text-sm mb-3 sm:mb-4 md:mb-6">
                     Center yourself before journaling with a guided meditation.
                     Clear your mind and create space for authentic
                     self-expression.
                   </p>
-                  <div className="flex gap-3">
-                    <button className="px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg hover:bg-white/30 transition-colors text-sm font-medium">
+                  <div className="flex flex-col xs:flex-row gap-2 sm:gap-3">
+                    <button className="px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg hover:bg-white/30 transition-colors text-xs sm:text-sm font-medium">
                       5 Min Session
                     </button>
-                    <button className="px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg hover:bg-white/30 transition-colors text-sm font-medium">
+                    <button className="px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg hover:bg-white/30 transition-colors text-xs sm:text-sm font-medium">
                       10 Min Session
                     </button>
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-4">
+                  <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
                     🌿 Breathing Exercises
                   </h3>
-                  <div className="space-y-3">
-                    <div className="backdrop-blur-sm bg-white/10 p-4 rounded-lg border border-white/20">
-                      <h4 className="font-medium mb-1">4-7-8 Breathing</h4>
-                      <p className="text-white/80 text-sm">
+                  <div className="space-y-2 sm:space-y-3">
+                    <div className="backdrop-blur-sm bg-white/10 p-3 sm:p-4 rounded-lg border border-white/20">
+                      <h4 className="font-medium mb-1 text-sm sm:text-base">4-7-8 Breathing</h4>
+                      <p className="text-white/80 text-xs sm:text-sm">
                         Inhale 4, hold 7, exhale 8
                       </p>
                     </div>
-                    <div className="backdrop-blur-sm bg-white/10 p-4 rounded-lg border border-white/20">
-                      <h4 className="font-medium mb-1">Box Breathing</h4>
-                      <p className="text-white/80 text-sm">
+                    <div className="backdrop-blur-sm bg-white/10 p-3 sm:p-4 rounded-lg border border-white/20">
+                      <h4 className="font-medium mb-1 text-sm sm:text-base">Box Breathing</h4>
+                      <p className="text-white/80 text-xs sm:text-sm">
                         4 counts each direction
                       </p>
                     </div>
@@ -514,25 +514,25 @@ const JournalPage = async () => {
           </div>
 
           {/* Previous Entries */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-16">
-            <div className="flex items-center justify-between mb-6">
+          <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-8 sm:mb-12 md:mb-16">
+            <div className="flex items-center justify-between mb-3 sm:mb-4 md:mb-6">
               <div className="flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-blue-500" />
-                <h2 className="text-xl font-semibold text-gray-900">
+                <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
+                <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
                   Your Journal Entries
                 </h2>
               </div>
-              <span className="text-sm text-gray-500">
+              <span className="text-xs sm:text-sm text-gray-500">
                 {journalEntries.length} entries
               </span>
             </div>
 
             <Suspense
               fallback={
-                <div className="text-gray-500">Loading journal entries...</div>
+                <div className="text-gray-500 text-sm">Loading journal entries...</div>
               }
             >
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {journalEntries.length > 0 ? (
                   journalEntries.slice(0, 5).map(
                     (
@@ -547,26 +547,26 @@ const JournalPage = async () => {
                     ) => (
                       <div
                         key={index}
-                        className="p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow"
+                        className="p-3 sm:p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow"
                       >
-                        <div className="flex items-start justify-between mb-3">
-                          <h3 className="font-semibold text-gray-900">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 sm:mb-3">
+                          <h3 className="font-semibold text-gray-900 text-sm sm:text-base mb-1 sm:mb-0">
                             {entry.title}
                           </h3>
-                          <span className="text-sm text-gray-500">
+                          <span className="text-xs sm:text-sm text-gray-500">
                             {entry.createdAt
                               ? new Date(entry.createdAt).toLocaleDateString()
                               : "Recently"}
                           </span>
                         </div>
-                        <p className="text-gray-600 line-clamp-3 mb-3">
+                        <p className="text-xs sm:text-sm text-gray-600 line-clamp-3 mb-2 sm:mb-3">
                           {entry.content}
                         </p>
                         <div className="flex items-center gap-2">
-                          <span className="text-xs px-2 py-1 bg-purple-100 text-purple-700 rounded-full">
+                          <span className="text-xs px-2 py-0.5 sm:py-1 bg-purple-100 text-purple-700 rounded-full">
                             Journal Entry
                           </span>
-                          <button className="text-sm text-purple-600 hover:text-purple-700 font-medium">
+                          <button className="text-xs sm:text-sm text-purple-600 hover:text-purple-700 font-medium">
                             Read more →
                           </button>
                         </div>
@@ -574,38 +574,38 @@ const JournalPage = async () => {
                     )
                   )
                 ) : (
-                  <div className="text-center py-12 text-gray-500">
-                    <BookOpen className="w-16 h-16 mx-auto mb-4 text-gray-300" />
-                    <h3 className="text-lg font-medium text-gray-900 mb-2">
+                  <div className="text-center py-8 sm:py-12 text-gray-500">
+                    <BookOpen className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 text-gray-300" />
+                    <h3 className="text-base sm:text-lg font-medium text-gray-900 mb-2">
                       Your journal awaits
                     </h3>
-                    <p className="mb-4">
+                    <p className="text-sm mb-3 sm:mb-4">
                       Begin your journey of self-reflection and growth
                     </p>
-                    <button className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
-                      <Plus className="w-4 h-4" />
+                    <button className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-xs sm:text-sm">
+                      <Plus className="w-3 h-3 sm:w-4 sm:h-4" />
                       Write your first entry
                     </button>
-                  </div>
+                    </div>
                 )}
               </div>
             </Suspense>
           </div>
 
           {/* Book Recommendations & Reading Corner */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8 mt-6">
-            <div className="flex items-center gap-2 mb-6">
-              <BookOpen className="w-5 h-5 text-indigo-500" />
-              <h2 className="text-xl font-semibold text-gray-900">
+          <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-4 sm:mb-6 md:mb-8 mt-4 sm:mt-6">
+            <div className="flex items-center gap-2 mb-3 sm:mb-4 md:mb-6">
+              <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-indigo-500" />
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
                 Recommended Reading & Inspiration
               </h2>
             </div>
-            <p className="text-gray-600 mb-6">
+            <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 md:mb-6">
               Discover books and authors that can deepen your journaling
               practice and personal growth
             </p>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-3 sm:mb-4 md:mb-6">
               {[
                 {
                   title: "The Artist's Way",
@@ -635,51 +635,51 @@ const JournalPage = async () => {
                 },
               ].map((book, index) => (
                 <div key={index} className="group">
-                  <div className="relative mb-4 rounded-lg overflow-hidden shadow-md">
+                  <div className="relative mb-3 sm:mb-4 rounded-lg overflow-hidden shadow-md">
                     <Image
                       src={book.image}
                       alt={book.title}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
+                      className="w-full h-36 sm:h-48 object-cover group-hover:scale-105 transition-transform"
                       width={200}
                       height={192}
                     />
                     <div className="absolute top-2 left-2">
-                      <span className="px-2 py-1 bg-indigo-500 text-white text-xs rounded-full">
+                      <span className="px-2 py-0.5 sm:py-1 bg-indigo-500 text-white text-xs rounded-full">
                         {book.category}
                       </span>
                     </div>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">
+                  <h3 className="font-semibold text-gray-900 mb-0.5 sm:mb-1 text-sm sm:text-base">
                     {book.title}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-2">by {book.author}</p>
-                  <p className="text-sm text-gray-500 mb-3">
+                  <p className="text-xs sm:text-sm text-gray-600 mb-1 sm:mb-2">by {book.author}</p>
+                  <p className="text-xs sm:text-sm text-gray-500 mb-2 sm:mb-3">
                     {book.description}
                   </p>
-                  <button className="text-sm text-indigo-600 hover:text-indigo-700 font-medium">
+                  <button className="text-xs sm:text-sm text-indigo-600 hover:text-indigo-700 font-medium">
                     Add to Reading List →
                   </button>
                 </div>
               ))}
             </div>
 
-            <div className="p-6 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border border-indigo-100">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center">
-                  <BookOpen className="w-8 h-8 text-indigo-600" />
+            <div className="p-4 sm:p-6 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border border-indigo-100">
+              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-2 sm:mb-0">
+                  <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-indigo-600" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 mb-1">
+                <div className="flex-1 text-center sm:text-left">
+                  <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">
                     Reading Challenge
                   </h3>
-                  <p className="text-gray-600 text-sm mb-3">
+                  <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3">
                     Set a goal to read books that inspire your writing journey
                   </p>
-                  <div className="flex gap-3">
-                    <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium">
+                  <div className="flex flex-col xs:flex-row gap-2 sm:gap-3 justify-center sm:justify-start">
+                    <button className="px-3 sm:px-4 py-1.5 sm:py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-xs sm:text-sm font-medium">
                       Set Reading Goal
                     </button>
-                    <button className="px-4 py-2 border border-indigo-300 text-indigo-600 rounded-lg hover:bg-indigo-50 transition-colors text-sm font-medium">
+                    <button className="px-3 sm:px-4 py-1.5 sm:py-2 border border-indigo-300 text-indigo-600 rounded-lg hover:bg-indigo-50 transition-colors text-xs sm:text-sm font-medium">
                       Browse Library
                     </button>
                   </div>
@@ -689,54 +689,54 @@ const JournalPage = async () => {
           </div>
 
           {/* Community & Sharing Hub */}
-          <div className="journal-community-hub rounded-2xl shadow-lg p-8 mb-8 text-white relative overflow-hidden">
+          <div className="journal-community-hub rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-4 sm:mb-6 md:mb-8 text-white relative overflow-hidden">
             <div className="relative z-10">
-              <div className="flex items-center gap-2 mb-6">
-                <Heart className="w-6 h-6" />
-                <h2 className="text-xl font-semibold">
+              <div className="flex items-center gap-2 mb-3 sm:mb-4 md:mb-6">
+                <Heart className="w-5 h-5 sm:w-6 sm:h-6" />
+                <h2 className="text-lg sm:text-xl font-semibold">
                   Community & Connection
                 </h2>
               </div>
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
                 <div>
-                  <h3 className="text-lg font-semibold mb-4">
+                  <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
                     🤝 Share Your Journey
                   </h3>
-                  <p className="text-white/90 mb-6">
+                  <p className="text-white/90 text-xs sm:text-sm mb-3 sm:mb-4 md:mb-6">
                     Connect with fellow journalers in a supportive community.
                     Share insights, get feedback, and inspire others with your
                     growth.
                   </p>
-                  <div className="space-y-3">
-                    <button className="w-full py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg hover:bg-white/30 transition-colors text-sm font-medium text-left px-4">
+                  <div className="space-y-2 sm:space-y-3">
+                    <button className="w-full py-2 sm:py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg hover:bg-white/30 transition-colors text-xs sm:text-sm font-medium text-left px-3 sm:px-4">
                       📝 Anonymous Story Sharing
                     </button>
-                    <button className="w-full py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg hover:bg-white/30 transition-colors text-sm font-medium text-left px-4">
+                    <button className="w-full py-2 sm:py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg hover:bg-white/30 transition-colors text-xs sm:text-sm font-medium text-left px-3 sm:px-4">
                       💡 Weekly Prompt Discussions
                     </button>
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-4">
+                  <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
                     🌟 Featured Stories
                   </h3>
-                  <div className="space-y-4">
-                    <div className="backdrop-blur-sm bg-white/10 p-4 rounded-lg border border-white/20">
-                      <p className="text-white/90 text-sm italic mb-2">
+                  <div className="space-y-3 sm:space-y-4">
+                    <div className="backdrop-blur-sm bg-white/10 p-3 sm:p-4 rounded-lg border border-white/20">
+                      <p className="text-white/90 text-xs sm:text-sm italic mb-1 sm:mb-2">
                         &ldquo;Journaling helped me discover my inner strength
                         during difficult times...&rdquo;
                       </p>
                       <p className="text-white/70 text-xs">- Sarah M.</p>
                     </div>
-                    <div className="backdrop-blur-sm bg-white/10 p-4 rounded-lg border border-white/20">
-                      <p className="text-white/90 text-sm italic mb-2">
+                    <div className="backdrop-blur-sm bg-white/10 p-3 sm:p-4 rounded-lg border border-white/20">
+                      <p className="text-white/90 text-xs sm:text-sm italic mb-1 sm:mb-2">
                         &ldquo;The daily prompts opened my eyes to patterns I
                         never noticed...&rdquo;
                       </p>
                       <p className="text-white/70 text-xs">- Alex K.</p>
                     </div>
                   </div>
-                  <button className="mt-4 text-sm text-white border border-white/50 px-4 py-2 rounded hover:bg-white/20 transition-colors">
+                  <button className="mt-3 sm:mt-4 text-xs sm:text-sm text-white border border-white/50 px-3 sm:px-4 py-1.5 sm:py-2 rounded hover:bg-white/20 transition-colors">
                     Read More Stories
                   </button>
                 </div>
@@ -745,21 +745,21 @@ const JournalPage = async () => {
           </div>
 
           {/* Progress Analytics Dashboard */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-            <div className="flex items-center gap-2 mb-6">
-              <Target className="w-5 h-5 text-emerald-500" />
-              <h2 className="text-xl font-semibold text-gray-900">
+          <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-4 sm:mb-6 md:mb-8">
+            <div className="flex items-center gap-2 mb-3 sm:mb-4 md:mb-6">
+              <Target className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500" />
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
                 Progress Analytics & Insights
               </h2>
             </div>
-            <p className="text-gray-600 mb-6">
+            <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 md:mb-6">
               Visualize your journaling journey with detailed analytics and
               patterns
             </p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-              <div className="text-center p-6 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-lg overflow-hidden">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mb-3 sm:mb-4 md:mb-6">
+              <div className="text-center p-3 sm:p-6 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg">
+                <div className="w-10 h-10 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-4 rounded-lg overflow-hidden">
                   <Image
                     src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=100&h=100&fit=crop&crop=center"
                     alt="Analytics"
@@ -768,15 +768,15 @@ const JournalPage = async () => {
                     height={64}
                   />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">
+                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-xs sm:text-sm">
                   Writing Velocity
                 </h3>
-                <p className="text-2xl font-bold text-emerald-600 mb-1">325</p>
-                <p className="text-gray-600 text-sm">words/entry avg</p>
+                <p className="text-xl sm:text-2xl font-bold text-emerald-600 mb-0.5 sm:mb-1">325</p>
+                <p className="text-xs sm:text-sm text-gray-600">words/entry avg</p>
               </div>
 
-              <div className="text-center p-6 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-lg overflow-hidden">
+              <div className="text-center p-3 sm:p-6 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg">
+                <div className="w-10 h-10 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-4 rounded-lg overflow-hidden">
                   <Image
                     src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=100&h=100&fit=crop&crop=center"
                     alt="Consistency"
@@ -785,15 +785,15 @@ const JournalPage = async () => {
                     height={64}
                   />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">
+                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-xs sm:text-sm">
                   Consistency Score
                 </h3>
-                <p className="text-2xl font-bold text-blue-600 mb-1">87%</p>
-                <p className="text-gray-600 text-sm">weekly average</p>
+                <p className="text-xl sm:text-2xl font-bold text-blue-600 mb-0.5 sm:mb-1">87%</p>
+                <p className="text-xs sm:text-sm text-gray-600">weekly average</p>
               </div>
 
-              <div className="text-center p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-lg overflow-hidden">
+              <div className="text-center p-3 sm:p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg">
+                <div className="w-10 h-10 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-4 rounded-lg overflow-hidden">
                   <Image
                     src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=100&h=100&fit=crop&crop=center"
                     alt="Growth"
@@ -802,15 +802,15 @@ const JournalPage = async () => {
                     height={64}
                   />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">
+                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-xs sm:text-sm">
                   Growth Trends
                 </h3>
-                <p className="text-2xl font-bold text-purple-600 mb-1">↗ 23%</p>
-                <p className="text-gray-600 text-sm">improvement</p>
+                <p className="text-xl sm:text-2xl font-bold text-purple-600 mb-0.5 sm:mb-1">↗ 23%</p>
+                <p className="text-xs sm:text-sm text-gray-600">improvement</p>
               </div>
 
-              <div className="text-center p-6 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-lg">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-lg overflow-hidden">
+              <div className="text-center p-3 sm:p-6 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-lg">
+                <div className="w-10 h-10 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-4 rounded-lg overflow-hidden">
                   <Image
                     src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=100&h=100&fit=crop&crop=center"
                     alt="Reflection"
@@ -819,61 +819,61 @@ const JournalPage = async () => {
                     height={64}
                   />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">
+                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-xs sm:text-sm">
                   Deep Reflections
                 </h3>
-                <p className="text-2xl font-bold text-orange-600 mb-1">12</p>
-                <p className="text-gray-600 text-sm">this month</p>
+                <p className="text-xl sm:text-2xl font-bold text-orange-600 mb-0.5 sm:mb-1">12</p>
+                <p className="text-xs sm:text-sm text-gray-600">this month</p>
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="p-6 border border-gray-200 rounded-lg">
-                <h3 className="font-semibold text-gray-900 mb-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6">
+              <div className="p-3 sm:p-6 border border-gray-200 rounded-lg">
+                <h3 className="font-semibold text-gray-900 mb-3 sm:mb-4 text-sm sm:text-base">
                   Writing Time Patterns
                 </h3>
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">
+                    <span className="text-xs sm:text-sm text-gray-600">
                       Morning (6-12 PM)
                     </span>
-                    <div className="flex-1 mx-3 bg-gray-200 rounded-full h-2">
-                      <div className="bg-emerald-500 h-2 rounded-full w-[45%]"></div>
+                    <div className="flex-1 mx-2 sm:mx-3 bg-gray-200 rounded-full h-1.5 sm:h-2">
+                      <div className="bg-emerald-500 h-1.5 sm:h-2 rounded-full w-[45%]"></div>
                     </div>
-                    <span className="text-sm font-medium text-gray-900">
+                    <span className="text-xs sm:text-sm font-medium text-gray-900">
                       45%
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">
+                    <span className="text-xs sm:text-sm text-gray-600">
                       Evening (6-12 PM)
                     </span>
-                    <div className="flex-1 mx-3 bg-gray-200 rounded-full h-2">
-                      <div className="bg-blue-500 h-2 rounded-full w-[35%]"></div>
+                    <div className="flex-1 mx-2 sm:mx-3 bg-gray-200 rounded-full h-1.5 sm:h-2">
+                      <div className="bg-blue-500 h-1.5 sm:h-2 rounded-full w-[35%]"></div>
                     </div>
-                    <span className="text-sm font-medium text-gray-900">
+                    <span className="text-xs sm:text-sm font-medium text-gray-900">
                       35%
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">
+                    <span className="text-xs sm:text-sm text-gray-600">
                       Night (12-6 AM)
                     </span>
-                    <div className="flex-1 mx-3 bg-gray-200 rounded-full h-2">
-                      <div className="bg-purple-500 h-2 rounded-full w-[20%]"></div>
+                    <div className="flex-1 mx-2 sm:mx-3 bg-gray-200 rounded-full h-1.5 sm:h-2">
+                      <div className="bg-purple-500 h-1.5 sm:h-2 rounded-full w-[20%]"></div>
                     </div>
-                    <span className="text-sm font-medium text-gray-900">
+                    <span className="text-xs sm:text-sm font-medium text-gray-900">
                       20%
                     </span>
                   </div>
                 </div>
               </div>
 
-              <div className="p-6 border border-gray-200 rounded-lg">
-                <h3 className="font-semibold text-gray-900 mb-4">
+              <div className="p-3 sm:p-6 border border-gray-200 rounded-lg">
+                <h3 className="font-semibold text-gray-900 mb-3 sm:mb-4 text-sm sm:text-base">
                   Most Common Themes
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {[
                     "Gratitude",
                     "Self-Growth",
@@ -886,13 +886,13 @@ const JournalPage = async () => {
                   ].map((theme, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors cursor-pointer"
+                      className="px-2 sm:px-3 py-0.5 sm:py-1 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm hover:bg-gray-200 transition-colors cursor-pointer"
                     >
                       {theme}
                     </span>
                   ))}
                 </div>
-                <button className="mt-4 text-sm text-emerald-600 hover:text-emerald-700 font-medium">
+                <button className="mt-3 sm:mt-4 text-xs sm:text-sm text-emerald-600 hover:text-emerald-700 font-medium">
                   View Detailed Analysis →
                 </button>
               </div>
@@ -901,45 +901,45 @@ const JournalPage = async () => {
         </div>
 
         {/* Footer Section */}
-        <section className="py-8 bg-white border-t border-gray-100 mt-16">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-6 sm:py-8 bg-white border-t border-gray-100 mt-8 sm:mt-12 md:mt-16">
+          <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
-              <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
                 <div className="flex flex-col items-center md:items-start">
-                  <h3 className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent mb-2">
+                  <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent mb-1 sm:mb-2">
                     MirianiWell
                   </h3>
-                  <p className="text-slate-500 text-sm max-w-md text-center md:text-left">
+                  <p className="text-slate-500 text-xs sm:text-sm max-w-md text-center md:text-left">
                     Your sacred space for reflection, growth, and mindful
                     journaling to support your wellness journey.
                   </p>
                 </div>
 
-                <div className="flex gap-8 md:gap-16">
+                <div className="flex gap-6 md:gap-8 lg:gap-16">
                   <div>
-                    <h4 className="font-semibold text-slate-800 mb-3">
+                    <h4 className="font-semibold text-slate-800 mb-2 sm:mb-3 text-sm sm:text-base">
                       Resources
                     </h4>
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-1.5 sm:gap-2">
                       <Link
                         href="/journal"
-                        className="text-slate-600 hover:text-amber-600 text-sm flex items-center gap-2 transition-all hover:translate-x-1"
+                        className="text-slate-600 hover:text-amber-600 text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 transition-all hover:translate-x-1"
                       >
-                        <BookOpen className="h-4 w-4" />
+                        <BookOpen className="h-3 w-3 sm:h-4 sm:w-4" />
                         Journal
                       </Link>
                       <Link
                         href="/affirmations"
-                        className="text-slate-600 hover:text-amber-600 text-sm flex items-center gap-2 transition-all hover:translate-x-1"
+                        className="text-slate-600 hover:text-amber-600 text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 transition-all hover:translate-x-1"
                       >
-                        <Sparkles className="h-4 w-4" />
+                        <Sparkles className="h-3 w-3 sm:h-4 sm:w-4" />
                         Affirmations
                       </Link>
                       <Link
                         href="/healing-companion"
-                        className="text-slate-600 hover:text-amber-600 text-sm flex items-center gap-2 transition-all hover:translate-x-1"
+                        className="text-slate-600 hover:text-amber-600 text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 transition-all hover:translate-x-1"
                       >
-                        <Bot className="h-4 w-4" />
+                        <Bot className="h-3 w-3 sm:h-4 sm:w-4" />
                         AI Companion
                       </Link>
                     </div>
@@ -947,18 +947,18 @@ const JournalPage = async () => {
                 </div>
               </div>
 
-              <div className="mt-10 pt-6 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center">
-                <p className="text-slate-500 text-sm">
+              <div className="mt-6 sm:mt-10 pt-4 sm:pt-6 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center">
+                <p className="text-slate-500 text-xs sm:text-sm">
                   © {new Date().getFullYear()} MirianiWell. All rights reserved.
                 </p>
-                <div className="flex gap-4 mt-4 md:mt-0">
+                <div className="flex gap-3 sm:gap-4 mt-3 sm:mt-4 md:mt-0">
                   <a
                     href="#"
                     className="text-slate-500 hover:text-amber-600 transition-all hover:scale-110"
                   >
                     <span className="sr-only">Twitter</span>
                     <svg
-                      className="h-5 w-5"
+                      className="h-4 w-4 sm:h-5 sm:w-5"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -971,7 +971,7 @@ const JournalPage = async () => {
                   >
                     <span className="sr-only">Instagram</span>
                     <svg
-                      className="h-5 w-5"
+                      className="h-4 w-4 sm:h-5 sm:w-5"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -988,7 +988,7 @@ const JournalPage = async () => {
                   >
                     <span className="sr-only">Facebook</span>
                     <svg
-                      className="h-5 w-5"
+                      className="h-4 w-4 sm:h-5 sm:w-5"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >

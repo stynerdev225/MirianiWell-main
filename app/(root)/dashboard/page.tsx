@@ -127,11 +127,11 @@ const DashboardPage = async () => {
   ];
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-6">
+    <div className="relative min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 px-3 sm:px-4 md:px-6 py-4 md:py-6">
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Hero Welcome Section with Banner */}
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
-          <div className="relative h-48 md:h-64 overflow-hidden">
+        <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden mb-6 sm:mb-8">
+          <div className="relative h-40 sm:h-48 md:h-64 overflow-hidden">
             <Image
               src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
               alt="Peaceful Nature"
@@ -139,36 +139,37 @@ const DashboardPage = async () => {
               priority
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-900/70 to-blue-900/50 flex items-end p-8">
-              <h1 className="text-3xl md:text-4xl font-bold text-white drop-shadow-md">
-                Welcome back, <span className="text-blue-200">{userName}</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-900/70 to-blue-900/50 flex items-end p-4 sm:p-6 md:p-8">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white drop-shadow-md">
+                Welcome back, <br className="inline sm:hidden" />
+                <span className="text-blue-200">{userName}</span>
               </h1>
             </div>
           </div>
 
-          <div className="p-8">
-            <p className="text-gray-600 mb-6 text-lg">
+          <div className="p-4 sm:p-6 md:p-8">
+            <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
               Your personal space for healing, growth, and self-discovery. How
               are you feeling today?
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link
                 href="/healing-companion"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#7d55e6] to-[#38b6ff] text-white rounded-lg hover:opacity-90 transition-all shadow-md hover:shadow-lg hover:translate-y-[-2px]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 bg-gradient-to-r from-[#7d55e6] to-[#38b6ff] text-white rounded-lg hover:opacity-90 transition-all shadow-md hover:shadow-lg font-medium text-sm sm:text-base"
               >
                 <Bot className="w-5 h-5" />
                 <span>Talk to your Healing Companion</span>
               </Link>
               <Link
                 href="/check-in"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-all hover:border-purple-200 hover:shadow-md"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-all hover:border-purple-200 hover:shadow-md font-medium text-sm sm:text-base"
               >
                 <Heart className="w-5 h-5 text-pink-500" />
                 <span>Daily Check-in</span>
               </Link>
               <Link
                 href="/journal"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-all hover:border-blue-200 hover:shadow-md"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-all hover:border-blue-200 hover:shadow-md font-medium text-sm sm:text-base"
               >
                 <BookOpen className="w-5 h-5 text-blue-500" />
                 <span>Write in Journal</span>
@@ -178,61 +179,75 @@ const DashboardPage = async () => {
         </div>
 
         {/* Wellness Status Card */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+        <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 mb-6 sm:mb-8">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-bold">Today&apos;s Wellness</h2>
-            <span className="text-sm text-gray-500">July 2, 2025</span>
+            <h2 className="text-xl sm:text-2xl font-bold">
+              Today&apos;s Wellness
+            </h2>
+            <span className="text-xs sm:text-sm text-gray-500">
+              July 2, 2025
+            </span>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="bg-gradient-to-br from-amber-50 to-orange-100 rounded-xl p-4 flex items-center">
-              <div className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center mr-4">
-                <Sun className="w-6 h-6 text-amber-500" />
+          <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-100 rounded-lg sm:rounded-xl p-3 sm:p-4 flex items-center">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-amber-500/20 flex items-center justify-center mr-3 sm:mr-4">
+                <Sun className="w-5 h-5 sm:w-6 sm:h-6 text-amber-500" />
               </div>
               <div>
-                <h3 className="text-sm font-medium text-gray-600">Morning</h3>
-                <p className="text-lg font-semibold">Energized</p>
+                <h3 className="text-xs sm:text-sm font-medium text-gray-600">
+                  Morning
+                </h3>
+                <p className="text-base sm:text-lg font-semibold">Energized</p>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-blue-50 to-sky-100 rounded-xl p-4 flex items-center">
-              <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mr-4">
-                <Sun className="w-6 h-6 text-blue-500" />
+            <div className="bg-gradient-to-br from-blue-50 to-sky-100 rounded-lg sm:rounded-xl p-3 sm:p-4 flex items-center">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue-500/20 flex items-center justify-center mr-3 sm:mr-4">
+                <Sun className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500" />
               </div>
               <div>
-                <h3 className="text-sm font-medium text-gray-600">Afternoon</h3>
-                <p className="text-lg font-semibold">Focused</p>
+                <h3 className="text-xs sm:text-sm font-medium text-gray-600">
+                  Afternoon
+                </h3>
+                <p className="text-base sm:text-lg font-semibold">Focused</p>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-purple-50 to-indigo-100 rounded-xl p-4 flex items-center">
-              <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mr-4">
-                <Sunset className="w-6 h-6 text-purple-500" />
+            <div className="bg-gradient-to-br from-purple-50 to-indigo-100 rounded-lg sm:rounded-xl p-3 sm:p-4 flex items-center">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-purple-500/20 flex items-center justify-center mr-3 sm:mr-4">
+                <Sunset className="w-5 h-5 sm:w-6 sm:h-6 text-purple-500" />
               </div>
               <div>
-                <h3 className="text-sm font-medium text-gray-600">Evening</h3>
-                <p className="text-lg font-semibold">Reflective</p>
+                <h3 className="text-xs sm:text-sm font-medium text-gray-600">
+                  Evening
+                </h3>
+                <p className="text-base sm:text-lg font-semibold">Reflective</p>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-gray-50 to-slate-100 rounded-xl p-4 flex items-center">
-              <div className="w-12 h-12 rounded-full bg-gray-500/20 flex items-center justify-center mr-4">
-                <Moon className="w-6 h-6 text-gray-500" />
+            <div className="bg-gradient-to-br from-gray-50 to-slate-100 rounded-lg sm:rounded-xl p-3 sm:p-4 flex items-center">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-500/20 flex items-center justify-center mr-3 sm:mr-4">
+                <Moon className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500" />
               </div>
               <div>
-                <h3 className="text-sm font-medium text-gray-600">Night</h3>
-                <p className="text-lg font-semibold">Relaxed</p>
+                <h3 className="text-xs sm:text-sm font-medium text-gray-600">
+                  Night
+                </h3>
+                <p className="text-base sm:text-lg font-semibold">Relaxed</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Features Grid with Enhanced Cards */}
-        <h2 className="text-2xl font-bold mb-4">Your Wellness Toolkit</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
+          Your Wellness Toolkit
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
           {features.map((feature, index) => (
             <Link
               key={index}
               href={feature.link}
               className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden group hover:translate-y-[-3px] duration-300"
             >
-              <div className="h-36 relative">
+              <div className="h-32 sm:h-36 relative">
                 <Image
                   src={getImageForFeature(feature.title)}
                   alt={feature.title}
@@ -241,23 +256,23 @@ const DashboardPage = async () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/50"></div>
                 <div
-                  className={`absolute top-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-r ${feature.color} flex items-center justify-center`}
+                  className={`absolute top-3 sm:top-4 left-3 sm:left-4 w-8 sm:w-10 h-8 sm:h-10 rounded-lg bg-gradient-to-r ${feature.color} flex items-center justify-center`}
                 >
-                  <feature.icon className="w-5 h-5 text-white" />
+                  <feature.icon className="w-4 sm:w-5 h-4 sm:h-5 text-white" />
                 </div>
                 {feature.badge && (
-                  <div className="absolute top-4 right-4 px-2 py-1 bg-green-500 text-white text-xs font-bold rounded-md">
+                  <div className="absolute top-3 sm:top-4 right-3 sm:right-4 px-2 py-1 bg-green-500 text-white text-xs font-bold rounded-md">
                     {feature.badge}
                   </div>
                 )}
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-xl font-bold text-white drop-shadow-md">
+                <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4">
+                  <h3 className="text-lg sm:text-xl font-bold text-white drop-shadow-md">
                     {feature.title}
                   </h3>
                 </div>
               </div>
-              <div className="p-4">
-                <p className="text-gray-600 mb-4 text-sm">
+              <div className="p-3 sm:p-4">
+                <p className="text-gray-600 mb-3 sm:mb-4 text-xs sm:text-sm">
                   {feature.description}
                 </p>
                 <div className="flex items-center text-purple-600 group-hover:translate-x-1 transition-transform">
@@ -270,50 +285,58 @@ const DashboardPage = async () => {
         </div>
 
         {/* Progress Section with Visual Elements */}
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+        <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden mb-6 sm:mb-8">
           <div className="flex flex-col md:flex-row">
             {/* Left column - Activity */}
-            <div className="flex-1 p-6 md:p-8">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold">Your Healing Journey</h2>
+            <div className="flex-1 p-4 sm:p-6 md:p-8">
+              <div className="flex items-center justify-between mb-4 sm:mb-6">
+                <h2 className="text-xl sm:text-2xl font-bold">
+                  Your Healing Journey
+                </h2>
                 <Link
                   href="/journal"
-                  className="text-sm text-blue-600 hover:underline flex items-center"
+                  className="text-xs sm:text-sm text-blue-600 hover:underline flex items-center"
                 >
                   View all <ArrowRight className="ml-1 w-3 h-3" />
                 </Link>
               </div>
-              <div className="space-y-4">
-                <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg border border-pink-100">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-pink-400 to-pink-600 flex items-center justify-center flex-shrink-0">
-                    <Heart className="w-5 h-5 text-white" />
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg border border-pink-100">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-pink-400 to-pink-600 flex items-center justify-center flex-shrink-0">
+                    <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <div className="flex-1">
                     <div className="flex justify-between items-start">
                       <div>
-                        <p className="font-medium">Daily Check-in Completed</p>
-                        <p className="text-sm text-gray-500">Today, 9:30 AM</p>
+                        <p className="font-medium text-sm sm:text-base">
+                          Daily Check-in Completed
+                        </p>
+                        <p className="text-xs sm:text-sm text-gray-500">
+                          Today, 9:30 AM
+                        </p>
                       </div>
                       <span className="text-xs font-medium px-2 py-1 bg-green-100 text-green-800 rounded-full">
                         Completed
                       </span>
                     </div>
-                    <div className="mt-2 bg-white px-3 py-2 rounded-md text-sm italic text-gray-600 border-l-2 border-pink-400">
+                    <div className="mt-2 bg-white px-3 py-2 rounded-md text-xs sm:text-sm italic text-gray-600 border-l-2 border-pink-400">
                       &ldquo;Feeling optimistic and energized today. Looking
                       forward to new possibilities.&rdquo;
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-100">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center flex-shrink-0">
-                    <Bot className="w-5 h-5 text-white" />
+                <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-100">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center flex-shrink-0">
+                    <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <div className="flex-1">
                     <div className="flex justify-between items-start">
                       <div>
-                        <p className="font-medium">Healing Companion Session</p>
-                        <p className="text-sm text-gray-500">
+                        <p className="font-medium text-sm sm:text-base">
+                          Healing Companion Session
+                        </p>
+                        <p className="text-xs sm:text-sm text-gray-500">
                           Yesterday, 8:15 PM
                         </p>
                       </div>
@@ -321,22 +344,24 @@ const DashboardPage = async () => {
                         20 min
                       </span>
                     </div>
-                    <div className="mt-2 bg-white px-3 py-2 rounded-md text-sm italic text-gray-600 border-l-2 border-blue-400">
+                    <div className="mt-2 bg-white px-3 py-2 rounded-md text-xs sm:text-sm italic text-gray-600 border-l-2 border-blue-400">
                       &ldquo;Discussed challenges and received personalized
                       guidance.&rdquo;
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-violet-50 to-purple-50 rounded-lg border border-violet-100">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-violet-400 to-violet-600 flex items-center justify-center flex-shrink-0">
-                    <BookOpen className="w-5 h-5 text-white" />
+                <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gradient-to-r from-violet-50 to-purple-50 rounded-lg border border-violet-100">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-violet-400 to-violet-600 flex items-center justify-center flex-shrink-0">
+                    <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <div className="flex-1">
                     <div className="flex justify-between items-start">
                       <div>
-                        <p className="font-medium">Journal Entry</p>
-                        <p className="text-sm text-gray-500">
+                        <p className="font-medium text-sm sm:text-base">
+                          Journal Entry
+                        </p>
+                        <p className="text-xs sm:text-sm text-gray-500">
                           Yesterday, 7:45 PM
                         </p>
                       </div>
@@ -344,7 +369,7 @@ const DashboardPage = async () => {
                         Reflective
                       </span>
                     </div>
-                    <div className="mt-2 bg-white px-3 py-2 rounded-md text-sm italic text-gray-600 border-l-2 border-purple-400">
+                    <div className="mt-2 bg-white px-3 py-2 rounded-md text-xs sm:text-sm italic text-gray-600 border-l-2 border-purple-400">
                       &ldquo;Today I realized how far I&apos;ve come in my
                       healing journey...&rdquo;
                     </div>
@@ -354,44 +379,44 @@ const DashboardPage = async () => {
             </div>
 
             {/* Right column - Visual chart/progress */}
-            <div className="flex-1 bg-blue-50 p-6 md:p-8 relative overflow-hidden">
+            <div className="flex-1 bg-blue-50 p-4 sm:p-6 md:p-8 relative overflow-hidden">
               <div className="relative z-10">
-                <h3 className="text-lg font-semibold mb-4">
+                <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
                   Wellness Progress
                 </h3>
-                <div className="mb-6">
-                  <div className="flex justify-between text-sm mb-1">
+                <div className="mb-4 sm:mb-6">
+                  <div className="flex justify-between text-xs sm:text-sm mb-1">
                     <span>Emotional Balance</span>
                     <span className="font-medium">78%</span>
                   </div>
-                  <div className="h-3 bg-blue-100 rounded-full overflow-hidden">
+                  <div className="h-2 sm:h-3 bg-blue-100 rounded-full overflow-hidden">
                     <div className="h-full bg-gradient-to-r from-blue-400 to-blue-600 rounded-full w-[78%]"></div>
                   </div>
                 </div>
 
-                <div className="mb-6">
-                  <div className="flex justify-between text-sm mb-1">
+                <div className="mb-4 sm:mb-6">
+                  <div className="flex justify-between text-xs sm:text-sm mb-1">
                     <span>Mindfulness</span>
                     <span className="font-medium">65%</span>
                   </div>
-                  <div className="h-3 bg-blue-100 rounded-full overflow-hidden">
+                  <div className="h-2 sm:h-3 bg-blue-100 rounded-full overflow-hidden">
                     <div className="h-full bg-gradient-to-r from-purple-400 to-purple-600 rounded-full w-[65%]"></div>
                   </div>
                 </div>
 
-                <div className="mb-6">
-                  <div className="flex justify-between text-sm mb-1">
+                <div className="mb-4 sm:mb-6">
+                  <div className="flex justify-between text-xs sm:text-sm mb-1">
                     <span>Energy Levels</span>
                     <span className="font-medium">82%</span>
                   </div>
-                  <div className="h-3 bg-blue-100 rounded-full overflow-hidden">
+                  <div className="h-2 sm:h-3 bg-blue-100 rounded-full overflow-hidden">
                     <div className="h-full bg-gradient-to-r from-green-400 to-green-600 rounded-full w-[82%]"></div>
                   </div>
                 </div>
 
                 <Link
                   href="/check-in"
-                  className="mt-2 text-sm text-blue-600 hover:underline flex items-center"
+                  className="mt-2 text-xs sm:text-sm text-blue-600 hover:underline flex items-center"
                 >
                   View detailed insights <ArrowRight className="ml-1 w-3 h-3" />
                 </Link>
@@ -405,10 +430,10 @@ const DashboardPage = async () => {
         </div>
 
         {/* Daily Wisdom & Affirmations Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8">
           {/* Affirmation card */}
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-            <div className="h-48 relative">
+          <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden">
+            <div className="h-36 sm:h-48 relative">
               <Image
                 src="https://images.unsplash.com/photo-1535957998253-26ae1ef29506?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1736&q=80"
                 alt="Peaceful nature"
@@ -416,34 +441,38 @@ const DashboardPage = async () => {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent flex items-end">
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-1">
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1">
                     Today&apos;s Affirmation
                   </h3>
-                  <p className="text-blue-100 text-sm">Refresh your mindset</p>
+                  <p className="text-blue-100 text-xs sm:text-sm">
+                    Refresh your mindset
+                  </p>
                 </div>
               </div>
             </div>
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-4">
+            <div className="p-4 sm:p-6">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
                 <div>
-                  <h4 className="font-medium">Daily Affirmation</h4>
-                  <p className="text-sm text-gray-500">
+                  <h4 className="font-medium text-sm sm:text-base">
+                    Daily Affirmation
+                  </h4>
+                  <p className="text-xs sm:text-sm text-gray-500">
                     5 minutes • Mood Booster
                   </p>
                 </div>
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center cursor-pointer hover:shadow-lg transition-shadow">
-                  <Calendar className="h-5 w-5 text-white" />
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center cursor-pointer hover:shadow-lg transition-shadow">
+                  <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                 </div>
               </div>
-              <div className="mb-4 text-lg italic text-center border-l-4 pl-4 border-blue-400 min-h-[80px] flex items-center justify-center">
+              <div className="mb-3 sm:mb-4 text-sm sm:text-base italic text-center border-l-4 pl-3 sm:pl-4 border-blue-400 min-h-[60px] sm:min-h-[80px] flex items-center justify-center">
                 &ldquo;I am at peace with my past, present, and future. I
                 embrace the journey of healing and growth.&rdquo;
               </div>
               <div className="mt-auto">
                 <Link
                   href="/affirmations"
-                  className="w-full h-12 flex items-center justify-center gap-2 text-center bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:opacity-90 transition-opacity text-sm font-medium"
+                  className="w-full h-10 sm:h-12 flex items-center justify-center gap-2 text-center bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:opacity-90 transition-opacity text-xs sm:text-sm font-medium"
                 >
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
@@ -455,8 +484,8 @@ const DashboardPage = async () => {
           </div>
 
           {/* Guided meditation card */}
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-            <div className="h-48 relative">
+          <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden">
+            <div className="h-36 sm:h-48 relative">
               <Image
                 src="https://images.unsplash.com/photo-1532798442725-41036acc7489?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1774&q=80"
                 alt="Meditation"
@@ -464,28 +493,30 @@ const DashboardPage = async () => {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent flex items-end">
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-1">
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1">
                     Guided Meditation
                   </h3>
-                  <p className="text-green-100 text-sm">
+                  <p className="text-green-100 text-xs sm:text-sm">
                     Recenter and calm your mind
                   </p>
                 </div>
               </div>
             </div>
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-4">
+            <div className="p-4 sm:p-6">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
                 <div>
-                  <h4 className="font-medium">Calming Breathwork</h4>
-                  <p className="text-sm text-gray-500">
+                  <h4 className="font-medium text-sm sm:text-base">
+                    Calming Breathwork
+                  </h4>
+                  <p className="text-xs sm:text-sm text-gray-500">
                     10 minutes • Stress Relief
                   </p>
                 </div>
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center cursor-pointer hover:shadow-lg transition-shadow">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center cursor-pointer hover:shadow-lg transition-shadow">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-white"
+                    className="h-4 w-4 sm:h-5 sm:w-5 text-white"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -497,14 +528,14 @@ const DashboardPage = async () => {
                   </svg>
                 </div>
               </div>
-              <div className="mb-4 text-lg italic text-center border-l-4 pl-4 border-green-400 min-h-[80px] flex items-center justify-center">
+              <div className="mb-3 sm:mb-4 text-sm sm:text-base italic text-center border-l-4 pl-3 sm:pl-4 border-green-400 min-h-[60px] sm:min-h-[80px] flex items-center justify-center">
                 &ldquo;Breathe deeply and reconnect with your inner calm. Each
                 breath brings you closer to peace.&rdquo;
               </div>
               <div className="mt-auto">
                 <Link
                   href="/rituals"
-                  className="w-full h-12 flex items-center justify-center gap-2 text-center bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm font-medium"
+                  className="w-full h-10 sm:h-12 flex items-center justify-center gap-2 text-center bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg hover:opacity-90 transition-opacity text-xs sm:text-sm font-medium"
                 >
                   <div className="flex items-center gap-2">
                     <Sparkles className="w-4 h-4" />
@@ -517,16 +548,18 @@ const DashboardPage = async () => {
         </div>
 
         {/* Wellness Tips Section */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 mb-8">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold">Wellness Tips for You</h2>
-            <button className="text-blue-600 hover:underline text-sm flex items-center">
+        <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-6 sm:mb-8">
+          <div className="flex items-center justify-between mb-4 sm:mb-6">
+            <h2 className="text-xl sm:text-2xl font-bold">
+              Wellness Tips for You
+            </h2>
+            <button className="text-blue-600 hover:underline text-xs sm:text-sm flex items-center">
               View all <ArrowRight className="w-3 h-3 ml-1" />
             </button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
-              <div className="h-32 relative">
+              <div className="h-28 sm:h-32 relative">
                 <Image
                   src={getImageForWellnessTip("Energizing Morning Routine")}
                   alt="Energizing Morning Routine"
@@ -534,23 +567,23 @@ const DashboardPage = async () => {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center mb-1">
-                    <Zap className="w-5 h-5 text-white" />
+                <div className="absolute bottom-0 left-0 p-3 sm:p-4">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center mb-1">
+                    <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                 </div>
               </div>
               <div className="p-4">
-                <h3 className="font-semibold mb-2">
+                <h3 className="font-semibold text-sm sm:text-base mb-1 sm:mb-2">
                   Energizing Morning Routine
                 </h3>
-                <p className="text-gray-600 text-sm mb-4">
+                <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4">
                   Start your day with intention through a simple 5-minute
                   energizing routine.
                 </p>
                 <Link
                   href="/rituals"
-                  className="text-amber-600 text-sm hover:underline flex items-center"
+                  className="text-amber-600 text-xs sm:text-sm hover:underline flex items-center"
                 >
                   Learn more <ArrowRight className="w-3 h-3 ml-1" />
                 </Link>
@@ -558,7 +591,7 @@ const DashboardPage = async () => {
             </div>
 
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
-              <div className="h-32 relative">
+              <div className="h-28 sm:h-32 relative">
                 <Image
                   src={getImageForWellnessTip("Better Sleep Habits")}
                   alt="Better Sleep Habits"
@@ -566,21 +599,23 @@ const DashboardPage = async () => {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center mb-1">
+                <div className="absolute bottom-0 left-0 p-3 sm:p-4">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center mb-1">
                     <Moon className="w-5 h-5 text-white" />
                   </div>
                 </div>
               </div>
-              <div className="p-4">
-                <h3 className="font-semibold mb-2">Better Sleep Habits</h3>
-                <p className="text-gray-600 text-sm mb-4">
+              <div className="p-3 sm:p-4">
+                <h3 className="font-semibold text-sm sm:text-base mb-1 sm:mb-2">
+                  Better Sleep Habits
+                </h3>
+                <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4">
                   Simple techniques to improve sleep quality and wake up
                   refreshed.
                 </p>
                 <Link
                   href="/rituals"
-                  className="text-blue-600 text-sm hover:underline flex items-center"
+                  className="text-blue-600 text-xs sm:text-sm hover:underline flex items-center"
                 >
                   Learn more <ArrowRight className="w-3 h-3 ml-1" />
                 </Link>
@@ -588,7 +623,7 @@ const DashboardPage = async () => {
             </div>
 
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
-              <div className="h-32 relative">
+              <div className="h-28 sm:h-32 relative">
                 <Image
                   src={getImageForWellnessTip("Mood Enhancement")}
                   alt="Mood Enhancement"
@@ -596,8 +631,8 @@ const DashboardPage = async () => {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-green-500 flex items-center justify-center mb-1">
+                <div className="absolute bottom-0 left-0 p-3 sm:p-4">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-emerald-400 to-green-500 flex items-center justify-center mb-1">
                     <TrendingUp className="w-5 h-5 text-white" />
                   </div>
                 </div>
@@ -618,7 +653,7 @@ const DashboardPage = async () => {
             </div>
 
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
-              <div className="h-32 relative">
+              <div className="h-28 sm:h-32 relative">
                 <Image
                   src={getImageForWellnessTip("Mindful Meditation")}
                   alt="Mindful Meditation"
@@ -626,8 +661,8 @@ const DashboardPage = async () => {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-violet-500 flex items-center justify-center mb-1">
+                <div className="absolute bottom-0 left-0 p-3 sm:p-4">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-purple-400 to-violet-500 flex items-center justify-center mb-1">
                     <Sparkles className="w-5 h-5 text-white" />
                   </div>
                 </div>
@@ -648,7 +683,7 @@ const DashboardPage = async () => {
             </div>
 
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
-              <div className="h-32 relative">
+              <div className="h-28 sm:h-32 relative">
                 <Image
                   src={getImageForWellnessTip("Nutritional Wellness")}
                   alt="Nutritional Wellness"
@@ -656,8 +691,8 @@ const DashboardPage = async () => {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center mb-1">
+                <div className="absolute bottom-0 left-0 p-3 sm:p-4">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center mb-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5 text-white"
@@ -692,7 +727,7 @@ const DashboardPage = async () => {
             </div>
 
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
-              <div className="h-32 relative">
+              <div className="h-28 sm:h-32 relative">
                 <Image
                   src={getImageForWellnessTip("Self-Care Practices")}
                   alt="Self-Care Practices"
@@ -700,21 +735,23 @@ const DashboardPage = async () => {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center mb-1">
-                    <Heart className="w-5 h-5 text-white" />
+                <div className="absolute bottom-0 left-0 p-3 sm:p-4">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center mb-1">
+                    <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                 </div>
               </div>
-              <div className="p-4">
-                <h3 className="font-semibold mb-2">Self-Care Practices</h3>
-                <p className="text-gray-600 text-sm mb-4">
+              <div className="p-3 sm:p-4">
+                <h3 className="font-semibold text-sm sm:text-base mb-1 sm:mb-2">
+                  Self-Care Practices
+                </h3>
+                <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4">
                   Essential rituals to nurture your mind, body, and spirit
                   daily.
                 </p>
                 <Link
                   href="/rituals"
-                  className="text-rose-600 text-sm hover:underline flex items-center"
+                  className="text-rose-600 text-xs sm:text-sm hover:underline flex items-center"
                 >
                   Learn more <ArrowRight className="w-3 h-3 ml-1" />
                 </Link>
@@ -724,9 +761,9 @@ const DashboardPage = async () => {
         </div>
 
         {/* VR Experience Coming Soon Section */}
-        <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl shadow-lg p-6 md:p-8 mb-8 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-purple-200 rounded-full opacity-30 transform translate-x-1/3 -translate-y-1/3"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-200 rounded-full opacity-20 transform -translate-x-1/3 translate-y-1/3"></div>
+        <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-60 sm:w-80 h-60 sm:h-80 bg-purple-200 rounded-full opacity-30 transform translate-x-1/3 -translate-y-1/3"></div>
+          <div className="absolute bottom-0 left-0 w-40 sm:w-64 h-40 sm:h-64 bg-indigo-200 rounded-full opacity-20 transform -translate-x-1/3 translate-y-1/3"></div>
 
           <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center">
             <div className="md:w-1/2">
@@ -851,15 +888,15 @@ const DashboardPage = async () => {
         </div>
 
         {/* Community Inspiration */}
-        <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl shadow-lg p-6 md:p-8 mb-6 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-200 rounded-full opacity-30 transform translate-x-1/3 -translate-y-1/3"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-200 rounded-full opacity-20 transform -translate-x-1/3 translate-y-1/3"></div>
+        <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-5 sm:mb-6 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-60 sm:w-80 h-60 sm:h-80 bg-indigo-200 rounded-full opacity-30 transform translate-x-1/3 -translate-y-1/3"></div>
+          <div className="absolute bottom-0 left-0 w-40 sm:w-64 h-40 sm:h-64 bg-purple-200 rounded-full opacity-20 transform -translate-x-1/3 translate-y-1/3"></div>
 
           <div className="relative z-10">
-            <h2 className="text-2xl font-bold mb-2">
+            <h2 className="text-xl sm:text-2xl font-bold mb-2">
               Your AI Healing Companion
             </h2>
-            <p className="text-gray-600 mb-6 max-w-3xl">
+            <p className="text-gray-600 mb-4 sm:mb-6 max-w-3xl text-sm sm:text-base">
               Luna, your compassionate AI companion, is here to support your
               wellness journey with personalized guidance, reflective
               conversations, and mindfulness practices. Connect anytime for
@@ -867,9 +904,9 @@ const DashboardPage = async () => {
             </p>
             <Link
               href="/healing-companion"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#7d55e6] to-[#38b6ff] text-white rounded-lg hover:opacity-90 transition-all shadow-md hover:shadow-xl"
+              className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-[#7d55e6] to-[#38b6ff] text-white rounded-lg hover:opacity-90 transition-all shadow-md hover:shadow-xl text-sm sm:text-base font-medium"
             >
-              <MessageCircle className="w-5 h-5" />
+              <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>Start a Healing Conversation</span>
             </Link>
           </div>
@@ -877,15 +914,15 @@ const DashboardPage = async () => {
       </div>
 
       {/* Footer Section */}
-      <section className="py-8 bg-white border-t border-gray-100 mt-12 -mx-6">
+      <section className="py-6 sm:py-8 bg-white border-t border-gray-100 mt-8 sm:mt-12 -mx-3 sm:-mx-4 md:-mx-6">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
               <div className="flex flex-col items-center md:items-start">
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
                   MirianiWell
                 </h3>
-                <p className="text-slate-500 text-sm max-w-md text-center md:text-left">
+                <p className="text-slate-500 text-xs sm:text-sm max-w-md text-center md:text-left">
                   Your daily companion for mindfulness, wellness tracking, and
                   mental health support.
                 </p>

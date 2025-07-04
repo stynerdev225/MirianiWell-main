@@ -31,9 +31,9 @@ async function Home() {
 
   if (!user) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex items-center justify-center min-h-screen px-4">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">
+          <h1 className="text-xl sm:text-2xl font-bold mb-4">
             Please sign in to continue your wellness journey
           </h1>
           <Button asChild>
@@ -46,95 +46,102 @@ async function Home() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden rounded-3xl mx-4 my-6 hero-rounded">
+      {/* Hero Section - Mobile Optimized */}
+      <section className="relative min-h-[100vh] sm:min-h-[60vh] flex items-center justify-center overflow-hidden rounded-2xl sm:rounded-3xl mx-2 sm:mx-4 my-3 sm:my-6">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/home/hero.jpg"
             alt="Peaceful meditation background"
             fill
-            className="object-cover rounded-3xl"
+            className="object-cover rounded-2xl sm:rounded-3xl"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-900/90 via-blue-900/85 to-pink-900/90 rounded-3xl"></div>
-          <div className="absolute inset-0 bg-black/30 rounded-3xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-b sm:bg-gradient-to-r from-purple-900/95 via-blue-900/90 to-pink-900/95 rounded-2xl sm:rounded-3xl"></div>
+          <div className="absolute inset-0 bg-black/20 sm:bg-black/30 rounded-2xl sm:rounded-3xl"></div>
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-10 hero-content">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+        {/* Hero Content - Mobile First */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
             {/* Text Content */}
-            <div className="lg:text-left text-center lg:w-1/2">
-              <div className="space-y-6 mb-8">
-                <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight drop-shadow-2xl">
-                  Welcome to Your
-                  <span className="bg-gradient-to-r from-cyan-300 via-blue-300 to-pink-300 bg-clip-text text-transparent block drop-shadow-lg">
+            <div className="text-center lg:text-left lg:w-1/2">
+              <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white leading-tight drop-shadow-2xl">
+                  <span className="block mb-2">Welcome to</span>
+                  <span className="block mb-2">Your</span>
+                  <span className="bg-gradient-to-r from-cyan-300 via-blue-300 to-pink-300 bg-clip-text text-transparent drop-shadow-lg">
                     Healing Journey
                   </span>
                 </h1>
-                <p className="text-lg md:text-xl text-white max-w-2xl mx-auto lg:mx-0 leading-relaxed drop-shadow-lg">
+                <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed drop-shadow-lg px-2 sm:px-0">
                   Discover personalized wellness practices, elemental rituals,
                   and AI-guided support to transform your mind, body, and
                   spirit.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-center px-4 sm:px-0">
                 <Button
                   asChild
-                  size="lg"
-                  className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-6 py-2 text-lg font-semibold rounded-full shadow-xl transition-all duration-300 hover:scale-105"
+                  size="default"
+                  className="w-full sm:w-auto bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-5 sm:px-6 py-2.5 sm:py-3 text-base sm:text-lg font-semibold rounded-full shadow-xl transition-all duration-300 hover:scale-105"
                 >
-                  <Link href="/rituals" className="flex items-center gap-2">
+                  <Link
+                    href="/rituals"
+                    className="flex items-center justify-center gap-2"
+                  >
                     Start Your Journey
-                    <ArrowRight className="w-5 h-5" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </Link>
                 </Button>
 
                 <Button
                   asChild
                   variant="outline"
-                  size="lg"
-                  className="border-2 border-white bg-black/20 text-white hover:bg-white hover:text-gray-900 px-6 py-2 text-lg font-semibold rounded-full backdrop-blur-sm transition-all duration-300 shadow-lg"
+                  size="default"
+                  className="w-full sm:w-auto border-2 border-white bg-white/10 text-white hover:bg-white hover:text-gray-900 px-5 sm:px-6 py-2.5 sm:py-3 text-base sm:text-lg font-semibold rounded-full backdrop-blur-sm transition-all duration-300 shadow-lg"
                 >
-                  <Link href="/check-in" className="flex items-center gap-2">
-                    <Play className="w-5 h-5" />
+                  <Link
+                    href="/check-in"
+                    className="flex items-center justify-center gap-2"
+                  >
+                    <Play className="w-4 h-4 sm:w-5 sm:h-5" />
                     Quick Check-In
                   </Link>
                 </Button>
               </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-4 mt-8 text-white">
-                <div className="text-center stat-card">
-                  <div className="text-2xl md:text-3xl font-bold mb-1 drop-shadow-lg">
+              {/* Stats - Mobile Optimized Grid */}
+              <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-6 sm:mt-8 text-white max-w-sm mx-auto lg:mx-0">
+                <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4">
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold mb-0.5 sm:mb-1 drop-shadow-lg">
                     10K+
                   </div>
-                  <div className="text-white/90 drop-shadow-md text-xs md:text-sm">
+                  <div className="text-white/80 drop-shadow-md text-xs sm:text-sm">
                     Users
                   </div>
                 </div>
-                <div className="text-center stat-card">
-                  <div className="text-2xl md:text-3xl font-bold mb-1 drop-shadow-lg">
+                <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4">
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold mb-0.5 sm:mb-1 drop-shadow-lg">
                     50+
                   </div>
-                  <div className="text-white/90 drop-shadow-md text-xs md:text-sm">
+                  <div className="text-white/80 drop-shadow-md text-xs sm:text-sm">
                     Practices
                   </div>
                 </div>
-                <div className="text-center stat-card">
-                  <div className="text-2xl md:text-3xl font-bold mb-1 drop-shadow-lg">
+                <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4">
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold mb-0.5 sm:mb-1 drop-shadow-lg">
                     98%
                   </div>
-                  <div className="text-white/90 drop-shadow-md text-xs md:text-sm">
+                  <div className="text-white/80 drop-shadow-md text-xs sm:text-sm">
                     Satisfaction
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Floating Decorative Image */}
+            {/* Floating Decorative Image - Hidden on Mobile */}
             <div className="lg:w-1/2 relative hidden lg:block">
               <div className="relative w-[400px] h-[400px]">
                 <Image
@@ -156,40 +163,40 @@ async function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      {/* Features Section - Mobile Optimized */}
+      <section className="py-12 sm:py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
               Elemental Healing Practices
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-2 sm:px-0">
               Connect with the four elements through ancient wisdom and modern
               techniques
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {/* Earth */}
             <Link href="/rituals/earth" className="group">
-              <div className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="aspect-square relative">
+              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="aspect-[4/3] sm:aspect-square relative">
                   <Image
                     src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
                     alt="Earth element"
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-green-900/80 via-green-700/40 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-green-900/90 via-green-700/50 to-transparent"></div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-green-500/20 backdrop-blur-sm flex items-center justify-center">
-                      <span className="text-2xl">🌱</span>
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
+                  <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-green-500/20 backdrop-blur-sm flex items-center justify-center">
+                      <span className="text-xl sm:text-2xl">🌱</span>
                     </div>
-                    <h3 className="text-xl font-bold">Earth</h3>
+                    <h3 className="text-lg sm:text-xl font-bold">Earth</h3>
                   </div>
-                  <p className="text-gray-200 text-sm leading-relaxed">
+                  <p className="text-gray-200 text-xs sm:text-sm leading-relaxed">
                     Grounding practices for stability, strength, and deep
                     connection with nature
                   </p>
@@ -199,24 +206,24 @@ async function Home() {
 
             {/* Water */}
             <Link href="/rituals/water" className="group">
-              <div className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="aspect-square relative">
+              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="aspect-[4/3] sm:aspect-square relative">
                   <Image
                     src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
                     alt="Water element"
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-700/40 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-700/50 to-transparent"></div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-blue-500/20 backdrop-blur-sm flex items-center justify-center">
-                      <span className="text-2xl">💧</span>
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
+                  <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue-500/20 backdrop-blur-sm flex items-center justify-center">
+                      <span className="text-xl sm:text-2xl">💧</span>
                     </div>
-                    <h3 className="text-xl font-bold">Water</h3>
+                    <h3 className="text-lg sm:text-xl font-bold">Water</h3>
                   </div>
-                  <p className="text-gray-200 text-sm leading-relaxed">
+                  <p className="text-gray-200 text-xs sm:text-sm leading-relaxed">
                     Flowing practices for emotional healing, purification, and
                     renewal
                   </p>
@@ -226,24 +233,24 @@ async function Home() {
 
             {/* Fire */}
             <Link href="/rituals/fire" className="group">
-              <div className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="aspect-square relative">
+              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="aspect-[4/3] sm:aspect-square relative">
                   <Image
                     src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
                     alt="Fire element"
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-red-900/80 via-red-700/40 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-red-900/90 via-red-700/50 to-transparent"></div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-red-500/20 backdrop-blur-sm flex items-center justify-center">
-                      <span className="text-2xl">🔥</span>
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
+                  <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-red-500/20 backdrop-blur-sm flex items-center justify-center">
+                      <span className="text-xl sm:text-2xl">🔥</span>
                     </div>
-                    <h3 className="text-xl font-bold">Fire</h3>
+                    <h3 className="text-lg sm:text-xl font-bold">Fire</h3>
                   </div>
-                  <p className="text-gray-200 text-sm leading-relaxed">
+                  <p className="text-gray-200 text-xs sm:text-sm leading-relaxed">
                     Transformative practices for passion, energy, and personal
                     power
                   </p>
@@ -253,24 +260,24 @@ async function Home() {
 
             {/* Air */}
             <Link href="/rituals/air" className="group">
-              <div className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="aspect-square relative">
+              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="aspect-[4/3] sm:aspect-square relative">
                   <Image
                     src="/images/rituals/air.jpg"
                     alt="Air element"
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 via-purple-700/40 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/90 via-purple-700/50 to-transparent"></div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-purple-500/20 backdrop-blur-sm flex items-center justify-center">
-                      <span className="text-2xl">🌬️</span>
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
+                  <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-purple-500/20 backdrop-blur-sm flex items-center justify-center">
+                      <span className="text-xl sm:text-2xl">🌬️</span>
                     </div>
-                    <h3 className="text-xl font-bold">Air</h3>
+                    <h3 className="text-lg sm:text-xl font-bold">Air</h3>
                   </div>
-                  <p className="text-gray-200 text-sm leading-relaxed">
+                  <p className="text-gray-200 text-xs sm:text-sm leading-relaxed">
                     Breathing practices for mental clarity, wisdom, and
                     spiritual connection
                   </p>
@@ -281,36 +288,36 @@ async function Home() {
         </div>
       </section>
 
-      {/* Wellness Tools Section */}
-      <section className="py-20 bg-white">
+      {/* Wellness Tools Section - Mobile Optimized */}
+      <section className="py-12 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
               Your Wellness Toolkit
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-2 sm:px-0">
               Powerful tools designed to support your daily wellness journey
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {/* Journal */}
             <Link href="/journal" className="group">
-              <div className="wellness-toolkit-card bg-gradient-to-br from-amber-50 to-orange-100 rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:scale-105 border border-amber-200 flex flex-col h-full">
-                <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl mb-4 mx-auto">
-                  <BookOpen className="w-8 h-8 text-white" />
+              <div className="wellness-toolkit-card bg-gradient-to-br from-amber-50 to-orange-100 rounded-xl sm:rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:scale-105 border border-amber-200 flex flex-col h-full min-h-[200px] sm:min-h-[250px]">
+                <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl sm:rounded-2xl mb-3 sm:mb-4 mx-auto">
+                  <BookOpen className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 text-center">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 text-center">
                   Sacred Journal
                 </h3>
-                <p className="text-gray-600 text-center mb-4 leading-relaxed flex-grow">
+                <p className="text-sm sm:text-base text-gray-600 text-center mb-3 sm:mb-4 leading-relaxed flex-grow">
                   Reflect on your journey, practice gratitude, and track your
                   personal growth with guided prompts
                 </p>
                 <div className="text-center mt-auto">
-                  <span className="inline-flex items-center text-amber-600 font-semibold group-hover:gap-2 transition-all">
+                  <span className="inline-flex items-center text-amber-600 font-semibold group-hover:gap-2 transition-all text-sm sm:text-base">
                     Start Writing
-                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </div>
               </div>
@@ -318,21 +325,21 @@ async function Home() {
 
             {/* Affirmations */}
             <Link href="/affirmations" className="group">
-              <div className="wellness-toolkit-card bg-gradient-to-br from-purple-50 to-pink-100 rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:scale-105 border border-purple-200 flex flex-col h-full">
-                <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl mb-4 mx-auto">
-                  <Sparkles className="w-8 h-8 text-white" />
+              <div className="wellness-toolkit-card bg-gradient-to-br from-purple-50 to-pink-100 rounded-xl sm:rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:scale-105 border border-purple-200 flex flex-col h-full min-h-[200px] sm:min-h-[250px]">
+                <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl sm:rounded-2xl mb-3 sm:mb-4 mx-auto">
+                  <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 text-center">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 text-center">
                   Daily Affirmations
                 </h3>
-                <p className="text-gray-600 text-center mb-4 leading-relaxed flex-grow">
+                <p className="text-sm sm:text-base text-gray-600 text-center mb-3 sm:mb-4 leading-relaxed flex-grow">
                   Empower yourself with positive mantras and personalized
                   affirmations for daily inspiration
                 </p>
                 <div className="text-center mt-auto">
-                  <span className="inline-flex items-center text-purple-600 font-semibold group-hover:gap-2 transition-all">
+                  <span className="inline-flex items-center text-purple-600 font-semibold group-hover:gap-2 transition-all text-sm sm:text-base">
                     Get Inspired
-                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </div>
               </div>
@@ -340,21 +347,21 @@ async function Home() {
 
             {/* AI Companion */}
             <Link href="/healing-companion" className="group">
-              <div className="wellness-toolkit-card bg-gradient-to-br from-cyan-50 to-blue-100 rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:scale-105 border border-cyan-200 flex flex-col h-full">
-                <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl mb-4 mx-auto">
-                  <Bot className="w-8 h-8 text-white" />
+              <div className="wellness-toolkit-card bg-gradient-to-br from-cyan-50 to-blue-100 rounded-xl sm:rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:scale-105 border border-cyan-200 flex flex-col h-full min-h-[200px] sm:min-h-[250px] sm:col-span-2 lg:col-span-1">
+                <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl sm:rounded-2xl mb-3 sm:mb-4 mx-auto">
+                  <Bot className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 text-center">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 text-center">
                   AI Healing Companion
                 </h3>
-                <p className="text-gray-600 text-center mb-4 leading-relaxed flex-grow">
+                <p className="text-sm sm:text-base text-gray-600 text-center mb-3 sm:mb-4 leading-relaxed flex-grow">
                   Get personalized guidance, emotional support, and healing
                   recommendations powered by AI
                 </p>
                 <div className="text-center mt-auto">
-                  <span className="inline-flex items-center text-cyan-600 font-semibold group-hover:gap-2 transition-all">
+                  <span className="inline-flex items-center text-cyan-600 font-semibold group-hover:gap-2 transition-all text-sm sm:text-base">
                     Chat Now
-                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </div>
               </div>
@@ -363,90 +370,96 @@ async function Home() {
         </div>
       </section>
 
-      {/* Testimonial Section */}
-      <section className="py-20 bg-gradient-to-r from-gray-50 to-blue-50">
+      {/* Testimonial Section - Mobile Optimized */}
+      <section className="py-12 sm:py-20 bg-gradient-to-r from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 px-2 sm:px-0">
               Join Thousands on Their Healing Journey
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="flex items-center mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg">
+              <div className="flex items-center mb-4 sm:mb-6">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-5 h-5 text-yellow-400 fill-current"
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current"
                   />
                 ))}
               </div>
-              <p className="text-gray-600 mb-6 italic">
-                &ldquo;Miriani Well has completely transformed my daily routine. The
-                elemental rituals help me feel grounded and centered.&rdquo;
+              <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 italic">
+                &ldquo;Miriani Well has completely transformed my daily routine.
+                The elemental rituals help me feel grounded and centered.&rdquo;
               </p>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white font-bold">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base">
                   S
                 </div>
-                <div className="ml-4">
-                  <div className="font-semibold text-gray-900">Sarah Chen</div>
-                  <div className="text-gray-500 text-sm">
+                <div className="ml-3 sm:ml-4">
+                  <div className="font-semibold text-gray-900 text-sm sm:text-base">
+                    Sarah Chen
+                  </div>
+                  <div className="text-gray-500 text-xs sm:text-sm">
                     Wellness Enthusiast
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="flex items-center mb-6">
+            <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg">
+              <div className="flex items-center mb-4 sm:mb-6">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-5 h-5 text-yellow-400 fill-current"
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current"
                   />
                 ))}
               </div>
-              <p className="text-gray-600 mb-6 italic">
-                &ldquo;The AI companion is incredibly insightful. It&apos;s like having a
-                personal wellness coach available 24/7.&rdquo;
+              <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 italic">
+                &ldquo;The AI companion is incredibly insightful. It&apos;s like
+                having a personal wellness coach available 24/7.&rdquo;
               </p>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-400 rounded-full flex items-center justify-center text-white font-bold">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-cyan-400 to-blue-400 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base">
                   M
                 </div>
-                <div className="ml-4">
-                  <div className="font-semibold text-gray-900">
+                <div className="ml-3 sm:ml-4">
+                  <div className="font-semibold text-gray-900 text-sm sm:text-base">
                     Marcus Rivera
                   </div>
-                  <div className="text-gray-500 text-sm">
+                  <div className="text-gray-500 text-xs sm:text-sm">
                     Mindfulness Teacher
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="flex items-center mb-6">
+            <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg">
+              <div className="flex items-center mb-4 sm:mb-6">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-5 h-5 text-yellow-400 fill-current"
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current"
                   />
                 ))}
               </div>
-              <p className="text-gray-600 mb-6 italic">
+              <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 italic">
                 &ldquo;The journaling feature with guided prompts has helped me
                 process emotions and track my growth journey.&rdquo;
               </p>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-400 rounded-full flex items-center justify-center text-white font-bold">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-green-400 to-emerald-400 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base">
                   A
                 </div>
-                <div className="ml-4">
-                  <div className="font-semibold text-gray-900">Aisha Patel</div>
-                  <div className="text-gray-500 text-sm">Yoga Instructor</div>
+                <div className="ml-3 sm:ml-4">
+                  <div className="font-semibold text-gray-900 text-sm sm:text-base">
+                    Aisha Patel
+                  </div>
+                  <div className="text-gray-500 text-xs sm:text-sm">
+                    Yoga Instructor
+                  </div>
                 </div>
               </div>
             </div>
@@ -454,61 +467,63 @@ async function Home() {
         </div>
       </section>
 
-      {/* Contract Frame Example Section */}
-      <section className="py-20 bg-white">
+      {/* Contract Frame Example Section - Mobile Optimized */}
+      <section className="py-12 sm:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
               Wellness Commitment
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-2 sm:px-0">
               Your personal contract for healing and transformation
             </p>
           </div>
 
           <ContractFrame title="Personal Wellness Agreement">
             <div className="prose prose-slate max-w-none mx-auto text-gray-900">
-              <p className="text-lg text-center mb-6 text-gray-800">
+              <p className="text-sm sm:text-base lg:text-lg text-center mb-4 sm:mb-6 text-gray-800">
                 I, ____________, commit to nurturing my mind, body, and spirit
                 through the practices offered by Miriani Well.
               </p>
 
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">
+              <div className="mb-4 sm:mb-6">
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-gray-800">
                   I pledge to:
                 </h3>
-                <ul className="space-y-2">
-                  <li className="text-gray-900 font-medium">
+                <ul className="space-y-1.5 sm:space-y-2">
+                  <li className="text-sm sm:text-base text-gray-900 font-medium">
                     Practice mindfulness and presence in my daily life
                   </li>
-                  <li className="text-gray-900 font-medium">
+                  <li className="text-sm sm:text-base text-gray-900 font-medium">
                     Honor my emotions and express them in healthy ways
                   </li>
-                  <li className="text-gray-900 font-medium">
+                  <li className="text-sm sm:text-base text-gray-900 font-medium">
                     Connect with nature and the elements regularly
                   </li>
-                  <li className="text-gray-900 font-medium">
+                  <li className="text-sm sm:text-base text-gray-900 font-medium">
                     Prioritize rest, reflection, and renewal
                   </li>
-                  <li className="text-gray-900 font-medium">
+                  <li className="text-sm sm:text-base text-gray-900 font-medium">
                     Approach my wellness journey with compassion and patience
                   </li>
                 </ul>
               </div>
 
-              <div className="flex justify-between items-center mt-10 pt-6 border-t border-gray-200">
-                <div>
-                  <p className="text-sm text-gray-900 font-semibold">
+              <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0 mt-8 sm:mt-10 pt-4 sm:pt-6 border-t border-gray-200">
+                <div className="w-full sm:w-auto">
+                  <p className="text-xs sm:text-sm text-gray-900 font-semibold text-center sm:text-left">
                     Signature
                   </p>
-                  <div className="mt-1 h-px w-40 border-b-2 border-gray-400"></div>
+                  <div className="mt-1 h-px w-full sm:w-40 border-b-2 border-gray-400"></div>
                 </div>
-                <div>
-                  <p className="text-sm text-gray-900 font-semibold">Date</p>
-                  <div className="mt-1 h-px w-32 border-b-2 border-gray-400"></div>
+                <div className="w-full sm:w-auto">
+                  <p className="text-xs sm:text-sm text-gray-900 font-semibold text-center sm:text-left">
+                    Date
+                  </p>
+                  <div className="mt-1 h-px w-full sm:w-32 border-b-2 border-gray-400"></div>
                 </div>
-                <div className="contract-seal flex items-center justify-center">
-                  <div className="w-20 h-20 relative flex items-center justify-center">
+                <div className="contract-seal flex items-center justify-center mt-4 sm:mt-0">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 relative flex items-center justify-center">
                     <div className="absolute inset-0 rounded-full border-2 border-purple-200 opacity-70"></div>
                     <div className="text-xs text-purple-700 font-serif font-medium text-center">
                       Miriani
@@ -523,36 +538,42 @@ async function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600">
+      {/* CTA Section - Mobile Optimized */}
+      <section className="py-12 sm:py-20 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
             Ready to Begin Your Transformation?
           </h2>
-          <p className="text-xl text-purple-100 mb-8 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-purple-100 mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0">
             Join thousands who have discovered inner peace, emotional balance,
             and spiritual growth through our platform.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Button
               asChild
-              size="lg"
-              className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full shadow-xl transition-all duration-300 hover:scale-105"
+              size="default"
+              className="w-full sm:w-auto bg-white text-purple-600 hover:bg-gray-100 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-full shadow-xl transition-all duration-300 hover:scale-105"
             >
-              <Link href="/dashboard" className="flex items-center gap-2">
+              <Link
+                href="/dashboard"
+                className="flex items-center justify-center gap-2"
+              >
                 View Dashboard
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </Link>
             </Button>
 
             <Button
               asChild
               variant="outline"
-              size="lg"
-              className="border-2 border-white bg-black/20 text-white hover:bg-white hover:text-purple-600 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 shadow-lg"
+              size="default"
+              className="w-full sm:w-auto border-2 border-white bg-white/10 text-white hover:bg-white hover:text-purple-600 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 shadow-lg"
             >
-              <Link href="/check-in" className="flex items-center gap-2">
-                <Heart className="w-5 h-5" />
+              <Link
+                href="/check-in"
+                className="flex items-center justify-center gap-2"
+              >
+                <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
                 Start Check-In
               </Link>
             </Button>
@@ -560,63 +581,65 @@ async function Home() {
         </div>
       </section>
 
-      {/* Footer Section */}
-      <section className="py-8 bg-white border-t border-gray-100">
+      {/* Footer Section - Mobile Optimized */}
+      <section className="py-6 sm:py-8 bg-white border-t border-gray-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               <div className="flex flex-col items-center md:items-start">
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-2">
+                <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-2">
                   MirianiWell
                 </h3>
-                <p className="text-slate-500 text-sm max-w-md text-center md:text-left">
+                <p className="text-slate-500 text-xs sm:text-sm max-w-md text-center md:text-left">
                   Your daily companion for mindfulness, wellness tracking, and
                   mental health support.
                 </p>
               </div>
 
-              <div className="flex gap-8 md:gap-16">
-                <div className="flex flex-col gap-2">
-                  <h4 className="font-semibold text-slate-800 mb-2">
+              <div className="flex gap-6 sm:gap-8 md:gap-16">
+                <div className="flex flex-col gap-1.5 sm:gap-2">
+                  <h4 className="font-semibold text-slate-800 mb-1 sm:mb-2 text-sm sm:text-base">
                     Resources
                   </h4>
                   <Link
                     href="/journal"
-                    className="text-slate-500 hover:text-purple-600 text-sm"
+                    className="text-slate-500 hover:text-purple-600 text-xs sm:text-sm"
                   >
                     Journal
                   </Link>
                   <Link
                     href="/rituals"
-                    className="text-slate-500 hover:text-purple-600 text-sm"
+                    className="text-slate-500 hover:text-purple-600 text-xs sm:text-sm"
                   >
                     Rituals
                   </Link>
                   <Link
                     href="/affirmations"
-                    className="text-slate-500 hover:text-purple-600 text-sm"
+                    className="text-slate-500 hover:text-purple-600 text-xs sm:text-sm"
                   >
                     Affirmations
                   </Link>
                 </div>
 
-                <div className="flex flex-col gap-2">
-                  <h4 className="font-semibold text-slate-800 mb-2">Company</h4>
+                <div className="flex flex-col gap-1.5 sm:gap-2">
+                  <h4 className="font-semibold text-slate-800 mb-1 sm:mb-2 text-sm sm:text-base">
+                    Company
+                  </h4>
                   <Link
                     href="#"
-                    className="text-slate-500 hover:text-purple-600 text-sm"
+                    className="text-slate-500 hover:text-purple-600 text-xs sm:text-sm"
                   >
                     About Us
                   </Link>
                   <Link
                     href="#"
-                    className="text-slate-500 hover:text-purple-600 text-sm"
+                    className="text-slate-500 hover:text-purple-600 text-xs sm:text-sm"
                   >
                     Privacy
                   </Link>
                   <Link
                     href="#"
-                    className="text-slate-500 hover:text-purple-600 text-sm"
+                    className="text-slate-500 hover:text-purple-600 text-xs sm:text-sm"
                   >
                     Terms
                   </Link>
@@ -624,18 +647,18 @@ async function Home() {
               </div>
             </div>
 
-            <div className="border-t border-gray-100 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
-              <p className="text-slate-500 text-sm">
+            <div className="border-t border-gray-100 mt-6 sm:mt-8 pt-4 sm:pt-6 flex flex-col md:flex-row justify-between items-center">
+              <p className="text-slate-500 text-xs sm:text-sm">
                 © {new Date().getFullYear()} MirianiWell. All rights reserved.
               </p>
-              <div className="flex gap-4 mt-4 md:mt-0">
+              <div className="flex gap-4 mt-3 sm:mt-4 md:mt-0">
                 <a
                   href="#"
                   className="text-slate-400 hover:text-purple-600 transition-colors"
                 >
                   <span className="sr-only">Twitter</span>
                   <svg
-                    className="h-5 w-5"
+                    className="h-4 w-4 sm:h-5 sm:w-5"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -648,7 +671,7 @@ async function Home() {
                 >
                   <span className="sr-only">Instagram</span>
                   <svg
-                    className="h-5 w-5"
+                    className="h-4 w-4 sm:h-5 sm:w-5"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -665,7 +688,7 @@ async function Home() {
                 >
                   <span className="sr-only">Facebook</span>
                   <svg
-                    className="h-5 w-5"
+                    className="h-4 w-4 sm:h-5 sm:w-5"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >

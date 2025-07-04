@@ -5,24 +5,35 @@
   background-image: linear-gradient(to bottom right, #eff6ff, #f5f3ff);
 }
 
-/* Background images for sections */
+/* Background images for sections - responsive background handling */
 .healing-sessions-bg {
   background-image: url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=400&fit=crop&crop=center");
+  background-size: cover;
+  background-position: center;
 }
 
 .resources-learning-bg {
   background-image: url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&h=400&fit=crop&crop=center");
+  background-size: cover;
+  background-position: center;
 }
 
-/* Typing indicator animation */
+/* Mobile-optimized typing indicator animation */
 .typing-dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   background-color: #6b7280;
   border-radius: 50%;
   display: inline-block;
   margin: 0 2px;
   opacity: 0.6;
+}
+
+@media (min-width: 640px) {
+  .typing-dot {
+    width: 8px;
+    height: 8px;
+  }
 }
 
 .typing-dot-1 {
@@ -45,39 +56,69 @@
   }
 
   50% {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     opacity: 1;
+  }
+}
+
+@media (min-width: 640px) {
+  @keyframes typing {
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.6;
+    }
+
+    50% {
+      transform: translateY(-5px);
+      opacity: 1;
+    }
   }
 }
 
 /* Progress bars */
 .progress-bar {
   width: 100%;
-  height: 6px;
+  height: 4px;
   background-color: #f3f4f6;
-  border-radius: 3px;
+  border-radius: 2px;
   overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .progress-bar {
+    height: 6px;
+    border-radius: 3px;
+  }
 }
 
 .progress-bar-green {
   height: 100%;
   background-color: #10b981;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .progress-bar-blue {
   height: 100%;
   background-color: #3b82f6;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .progress-bar-indigo {
   height: 100%;
   background-color: #6366f1;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
-/* Resources background */
+@media (min-width: 640px) {
+  .progress-bar-green,
+  .progress-bar-blue,
+  .progress-bar-indigo {
+    border-radius: 3px;
+  }
+}
+
+/* Resources background - optimized for mobile */
 .resources-bg {
   background: linear-gradient(135deg, #4338ca 0%, #3b82f6 100%);
   position: relative;
@@ -95,9 +136,14 @@
   z-index: 0;
 }
 
-/* Animation for action buttons */
+/* Animation for action buttons - enhanced for touch devices */
 .group:hover .group-hover\:scale-110 {
   transform: scale(1.1);
+}
+
+/* Mobile-optimized touch targets */
+.touch-manipulation {
+  touch-action: manipulation;
 }
 
 /* Transition effects */
@@ -125,7 +171,7 @@
   color: transparent;
 }
 
-/* Shadow effects for cards */
+/* Shadow effects for cards - optimized for performance on mobile */
 .hover\:shadow-md:hover {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -140,7 +186,23 @@
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
-.hover\:shadow-xl:hover {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+/* Mobile specific enhancements */
+@media (max-width: 640px) {
+  /* Smaller chat bubbles and text on small screens */
+  .max-w-xs {
+    max-width: 80%;
+  }
+  
+  /* Improve touch targets on mobile */
+  button, 
+  input,
+  a {
+    min-height: 44px;
+  }
+
+  /* Fix tap highlight color */
+  * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
 }
