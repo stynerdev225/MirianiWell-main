@@ -17,7 +17,9 @@
     "analyze": "cross-env ANALYZE=true next build",
     "generate-icons": "node scripts/generate-icons.js",
     "copy-icons": "node scripts/copy-icons.js",
-    "setup-pwa": "npm run copy-icons && echo 'PWA setup complete!'"
+    "setup-pwa": "npm run copy-icons && echo 'PWA setup complete!'",
+    "deploy": "netlify deploy --prod",
+    "deploy:preview": "netlify deploy"
   },
   "dependencies": {
     "@ai-sdk/google": "^1.1.25",
