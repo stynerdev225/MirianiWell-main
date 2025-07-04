@@ -1,0 +1,38 @@
+# Next.js specific Netlify configuration
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+  ignore = "git diff --quiet HEAD^ HEAD -- . ':!node_modules'"
+
+[build.environment]
+  NEXT_SERVERLESS = "true"
+  NODE_VERSION = "18.17.0"
+  NPM_VERSION = "10.2.3"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Handle all routes with Next.js
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/___netlify-handler"
+  status = 200
+  force = true
+
+# Handle 404 errors with a custom page
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Asset handling
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

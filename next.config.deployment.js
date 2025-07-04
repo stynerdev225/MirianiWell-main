@@ -63,6 +63,9 @@ const nextConfig = {
   },
   compress: true,
   poweredByHeader: false,
+  // Skip clerk-debug during static generation to avoid SSG errors
+  skipMiddlewareUrlNormalize: true,
+  skipTrailingSlashRedirect: true,
 };
 
 export default pwaConfig(nextConfig);

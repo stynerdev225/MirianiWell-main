@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev --turbo",
     "dev:network": "next dev --turbo -p 3001 -H 0.0.0.0",
-    "build": "next build",
+    "build": "next build && cp -r public/* .next/",
     "start": "next start",
     "lint": "next lint",
     "ngrok": "ngrok http 3001",
@@ -18,8 +18,19 @@
     "generate-icons": "node scripts/generate-icons.js",
     "copy-icons": "node scripts/copy-icons.js",
     "setup-pwa": "npm run copy-icons && echo 'PWA setup complete!'",
-    "deploy": "netlify deploy --prod",
-    "deploy:preview": "netlify deploy"
+    "export": "next export",
+    "deploy": "./build-with-images.sh --deploy",
+    "deploy:preview": "npm run build && ./copy-assets.sh && netlify deploy",
+    "deploy:static": "./deploy-static-fixed.sh",
+    "deploy:fresh": "./deploy-fresh.sh",
+    "deploy:complete": "./deploy-complete.sh",
+    "deploy:404-fixed": "./deploy-404-fixed.sh",
+    "deploy:clerk-fixed": "./deploy-clerk-fixed.sh",
+    "deploy:vercel-fixed": "./deploy-to-vercel-fixed.sh",
+    "check:clerk": "./check-clerk-packages.sh",
+    "fix:clerk": "./fix-clerk-deps.sh",
+    "dedupe": "npm dedupe",
+    "debug:images": "./debug-images.sh"
   },
   "dependencies": {
     "@ai-sdk/google": "^1.1.25",

@@ -1,0 +1,5 @@
+# This file helps Netlify understand how to handle 404s and redirects
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

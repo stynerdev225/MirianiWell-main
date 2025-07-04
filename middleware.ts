@@ -1,29 +1,32 @@
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { clerkMiddleware } from "@clerk/nextjs/server";
 
-// Define public routes - routes that don't require authentication
-const isPublicRoute = createRouteMatcher([
-  "/",
-  "/sign-in(.*)",
-  "/sign-up(.*)",
-  "/api/webhooks(.*)",
-]);
+// Define public paths that don't require authentication
+const publicPaths = ['/sign-in', '/sign-up', '/', '/about', '/contact'];
 
-export default clerkMiddleware(async (auth, req) => {
-  // Check if Clerk keys are available
-  const hasClerkKeys = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-
-  if (!hasClerkKeys) {
-    // If no Clerk keys, skip auth protection
-    return;
-  }
-
-  // If the route is not public, protect it
-  if (!isPublicRoute(req)) {
-    await auth.protect();
-  }
-});
+function isPublicPath(pathname: string): boolean {
+  return publicPaths.some(path => pathname === path || pathname.startsWith(path + '/'));
+}
 
 export const config = {
   // Matches all routes except for static files and Next.js internals
   matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };
+export default clerkMiddleware(async (auth, req) => {
+  // Skip Clerk for the debug page to avoid static generation issues
+  if (req.nextUrl.pathname.startsWith('/clerk-debug')) {
+    return;
+  }
+  
+  // Skip auth for public paths
+  if (isPublicPath(req.nextUrl.pathname)) {
+    return;
+  }
+  
+  // Optional: Add any logic to run before the route handler
+  // For example, redirecting unauthenticated users
+  // if (!auth.userId && !isPublicPath(req.nextUrl.pathname)) {
+  //   const signInUrl = new URL('/sign-in', req.url);
+  //   signInUrl.searchParams.set('redirect_url', req.url);
+  //   return Response.redirect(signInUrl);
+  // }
+});

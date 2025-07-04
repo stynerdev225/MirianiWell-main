@@ -77,7 +77,8 @@ const DashboardPage = async () => {
       "Offline affirmation library for on-the-go support",
     ],
     launchDate: "August 2025",
-    image: "/VRMentalHealthExperienceMindfulVRExperience.jpg",
+    image:
+      "https://pub-d6475def8a4045c2992481493ad3c8e4.r2.dev/VRMentalHealthExperienceMindfulVRExperience.avif",
   };
 
   const features = [
@@ -811,7 +812,7 @@ const DashboardPage = async () => {
             <div className="md:w-1/2 mt-6 md:mt-0">
               <div className="relative h-64 md:h-80 w-full rounded-xl overflow-hidden shadow-xl">
                 <Image
-                  src="/VRMentalHealthExperienceMindfulVRExperience.jpg"
+                  src="https://pub-d6475def8a4045c2992481493ad3c8e4.r2.dev/VRMentalHealthExperienceMindfulVRExperience.avif"
                   alt="VR Mental Health Experience Preview"
                   fill
                   className="object-cover"

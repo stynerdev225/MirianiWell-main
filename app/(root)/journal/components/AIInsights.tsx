@@ -6,7 +6,6 @@ import {
   generateJournalInsights,
   type AIInsightResponse,
 } from "@/lib/openrouter";
-import "./AIInsights.css";
 
 interface AIInsightsComponentProps {
   journalEntries: Array<{
@@ -53,9 +52,7 @@ export default function AIInsightsComponent({
   if (!insights && !isLoading) {
     return (
       <div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl shadow-lg p-8 text-white relative overflow-hidden mb-8">
-        <div
-          className="ai-insights-background"
-        />
+        <div className="absolute inset-0 opacity-20 bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=600&fit=crop&crop=center')]" />
         <div className="relative z-10">
           <div className="flex items-center gap-2 mb-6">
             <Brain className="w-6 h-6" />

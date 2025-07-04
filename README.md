@@ -28,11 +28,11 @@
 4. 🤸 [Quick Start](#quick-start)
 5. 🕸️ [Snippets (Code to Copy)](#snippets)
 6. 🔗 [Assets](#links)
-7. 🚀 [More](#more)
+7. 🚀 [Advanced Learning Resources](#more)
 
 ## 🚨 Tutorial
 
-This repository contains the code corresponding to an in-depth tutorial available on our YouTube channel, <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a>.
+This repository contains the code corresponding to an in-depth tutorial available on our YouTube channel, <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery YouTube Channel</b></a>.
 
 If you prefer visual learning, this is the perfect resource for you. Follow our tutorial to learn how to build projects like these step-by-step in a beginner-friendly manner!
 
@@ -75,7 +75,9 @@ If you're getting started and need assistance or face any bugs, join our active 
 
 👉 **Healing Dashboard**: Manage and track your wellness journey with easy navigation and progress insights.
 
-👉 **Responsiveness**: Fully responsive design that works seamlessly across devices for healing on-the-go.
+👉 **Mobile Responsiveness**: Fully responsive design optimized for mobile devices and touch-friendly interfaces.
+
+👉 **Progressive Web App**: Install as an app on your mobile device for a native-like experience.
 
 and many more, including holistic wellness features and mindful user experience
 
@@ -705,7 +707,7 @@ export const dummyInterviews: Interview[] = [
 
 ## <a name="links">🔗 Assets</a>
 
-Public assets used in the project can be found [here](https://drive.google.com/drive/folders/1DuQ9bHH3D3ZAN_CFKfBgsaB8DEhEdnog?usp=sharing)
+Public assets used in the project can be found in the [Google Drive folder](https://drive.google.com/drive/folders/1DuQ9bHH3D3ZAN_CFKfBgsaB8DEhEdnog?usp=sharing)
 
 ## <a name="more">🚀 More</a>
 
@@ -715,5 +717,99 @@ Enjoyed creating this project? Dive deeper into our PRO courses for a richer lea
 detailed explanations, cool features, and exercises to boost your skills. Give it a go!
 
 <a href="https://jsmastery.pro/next15" target="_blank">
+   Next.js Pro Course - Advanced Learning
    <img src="https://github.com/user-attachments/assets/b8760e69-1f81-4a71-9108-ceeb1de36741" alt="Project Banner">
 </a>
+
+## <a name="deployment">🚀 Deployment Guide</a>
+
+### Deploying to Vercel (Recommended)
+
+Vercel is optimized for Next.js applications and provides the best performance and reliability.
+
+1. **Prerequisites**:
+
+   - Vercel CLI installed: `npm install -g vercel`
+   - Vercel account (create one at [vercel.com](https://vercel.com))
+
+2. **Deployment Steps**:
+
+   ```bash
+   # Run the automated deployment script with Clerk fixes
+   npm run deploy:vercel-fixed
+
+   # For production deployment (alternative method)
+   vercel --prod
+   ```
+
+3. **Manual Deployment**:
+
+   ```bash
+   # Deploy to preview environment
+   vercel
+
+   # Deploy to production
+   vercel --prod
+   ```
+
+4. **Vercel Configuration**:
+   - The project includes a `vercel.json` file with optimized settings
+   - Custom build steps ensure all assets are properly copied
+   - Authentication is handled automatically by Clerk integration
+
+### Troubleshooting Clerk Authentication Issues
+
+When deploying to Vercel, you might encounter Clerk authentication errors during the build process, especially with the `/clerk-debug` page. The common error is:
+
+```bash
+Error: useUser can only be used within the <ClerkProvider /> component.
+```
+
+This occurs because during static page generation, Clerk hooks are used outside of the ClerkProvider context. To fix this:
+
+1. **Use the fixed deployment script**:
+
+   ```bash
+   npm run deploy:vercel-fixed
+   ```
+
+2. **Check for multiple Clerk package versions**:
+
+   ```bash
+   npm run check:clerk
+   ```
+
+3. **If multiple versions are found, deduplicate packages**:
+
+   ```bash
+   npm run dedupe
+   ```
+
+4. **Manual fixes (if needed)**:
+   - Mark the problematic pages as dynamic with `export const dynamic = 'force-dynamic'`
+   - Add loading states to handle when Clerk isn't initialized
+   - Update the middleware to exclude Clerk pages from static generation
+
+For detailed Clerk troubleshooting information, refer to the [CLERK_TROUBLESHOOTING.md](CLERK_TROUBLESHOOTING.md) document.
+
+### Deploying to Netlify (Alternative)
+
+If you prefer Netlify, use the following commands:
+
+```bash
+# Complete deployment with cache clearing
+npm run deploy:complete
+
+# Fresh deployment (rebuild everything)
+npm run deploy:fresh
+
+# Fix 404 errors deployment
+npm run deploy:404-fixed
+
+# Clerk-specific fixes for deployment
+npm run deploy:clerk-fixed
+```
+
+For detailed Netlify troubleshooting information, refer to the [NETLIFY_TROUBLESHOOTING.md](NETLIFY_TROUBLESHOOTING.md) document.
+
+For detailed Netlify troubleshooting, refer to the [NETLIFY_TROUBLESHOOTING.md](NETLIFY_TROUBLESHOOTING.md) document.

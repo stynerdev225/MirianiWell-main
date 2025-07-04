@@ -1,0 +1,39 @@
+[build]
+  publish = "out"
+  command = "npm run build && npm run export"
+
+[build.environment]
+  NODE_VERSION = "18.17.0"
+  NPM_VERSION = "10.2.3"
+
+[[plugins]]
+  package = "netlify-plugin-cache-nextjs"
+
+# Asset handling
+[[redirects]]
+  from = "/images/*"
+  to = "/images/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/_next/static/*"
+  to = "/_next/static/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/_next/*"
+  to = "/_next/:splat"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

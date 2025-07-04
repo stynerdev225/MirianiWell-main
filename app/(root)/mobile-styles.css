@@ -1,0 +1,127 @@
+/* Mobile-specific styles for Miriani Well */
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.2s ease-out forwards;
+}
+
+/* Enhanced button styles for mobile */
+.mobile-btn {
+  @apply w-full text-center flex justify-center items-center gap-2 py-3 rounded-full text-sm font-medium transition-all;
+}
+
+.mobile-btn-primary {
+  @apply bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg hover:shadow-xl;
+}
+
+.mobile-btn-secondary {
+  @apply border-2 border-white bg-black/20 text-white backdrop-blur-sm shadow-md hover:bg-white/10;
+}
+
+/* Card styles optimized for mobile */
+.mobile-card {
+  @apply rounded-xl overflow-hidden relative shadow-md transition-all duration-300;
+}
+
+.mobile-card:active {
+  @apply scale-97 bg-gray-50;
+}
+
+/* Mobile navigation enhancements */
+.mobile-nav-link {
+  @apply flex flex-col items-center justify-center py-2;
+}
+
+.mobile-nav-link-active {
+  @apply text-purple-600;
+}
+
+.mobile-nav-text {
+  @apply text-xs mt-1 font-medium;
+}
+
+/* Mobile-optimized stats display */
+.mobile-stat-card {
+  @apply text-center p-2 rounded-lg bg-white/10 backdrop-blur-sm;
+}
+
+.mobile-stat-value {
+  @apply text-xl font-bold mb-1 drop-shadow-lg;
+}
+
+.mobile-stat-label {
+  @apply text-white/90 drop-shadow-md text-xs;
+}
+
+/* Mobile scrolling sections */
+.scroll-section {
+  @apply overflow-x-auto pb-4 -mx-3 hide-scrollbar;
+}
+
+.scroll-section-inner {
+  @apply flex gap-3 px-3 min-w-max;
+}
+
+/* Hide scrollbar but allow scrolling */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Hero section mobile styles */
+.mobile-hero {
+  @apply relative flex items-center justify-center overflow-hidden rounded-xl mx-3 my-3 min-h-[60vh];
+}
+
+/* Mobile-optimized headings */
+.mobile-heading {
+  @apply text-2xl font-bold mb-2;
+}
+
+.mobile-subheading {
+  @apply text-sm text-gray-600 max-w-xs mx-auto;
+}
+
+/* Mobile bottom navigation */
+.mobile-bottom-nav {
+  @apply fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-40;
+}
+
+.mobile-bottom-nav-inner {
+  @apply flex justify-around;
+}
+
+.mobile-bottom-nav-link {
+  @apply flex flex-col items-center py-2 px-1;
+}
+
+.mobile-center-button {
+  @apply w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center -mt-5 border-4 border-white;
+}
+
+/* Mobile quick actions */
+.mobile-quick-action {
+  @apply w-24 flex flex-col items-center;
+}
+
+.mobile-quick-action-icon {
+  @apply w-14 h-14 rounded-full flex items-center justify-center mb-2;
+}
+
+.mobile-quick-action-text {
+  @apply text-xs font-medium text-gray-800;
+}

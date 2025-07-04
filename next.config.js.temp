@@ -5,62 +5,33 @@ const pwaConfig = withPWA({
   disable: process.env.NODE_ENV === "development",
   register: true,
   skipWaiting: true,
-  runtimeCaching: [
-    {
-      urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-      handler: "CacheFirst",
-      options: {
-        cacheName: "google-fonts",
-        expiration: {
-          maxEntries: 4,
-          maxAgeSeconds: 365 * 24 * 60 * 60, // 365 days
-        },
-      },
-    },
-    {
-      urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
-      handler: "CacheFirst",
-      options: {
-        cacheName: "google-fonts",
-        expiration: {
-          maxEntries: 4,
-          maxAgeSeconds: 365 * 24 * 60 * 60, // 365 days
-        },
-      },
-    },
-  ],
 });
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    optimizeCss: true,
-  },
+  output: "standalone",
   images: {
     remotePatterns: [
       {
         protocol: "https",
         hostname: "ik.imagekit.io",
-        port: "",
       },
       {
         protocol: "https",
         hostname: "images.unsplash.com",
-        port: "",
       },
       {
         protocol: "https",
         hostname: "source.unsplash.com",
-        port: "",
       },
       {
         protocol: "https",
         hostname: "pub-d6475def8a4045c2992481493ad3c8e4.r2.dev",
-        port: "",
       },
     ],
     formats: ["image/webp", "image/avif"],
   },
+  trailingSlash: true,
   compress: true,
   poweredByHeader: false,
 };

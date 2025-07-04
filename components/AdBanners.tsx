@@ -1,11 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 // Ad banner data
 const adBanners = [
   {
-    image: "/VRMentalHealthExperienceMindfulVRExperience.jpg",
+    image:
+      "https://pub-d6475def8a4045c2992481493ad3c8e4.r2.dev/VRMentalHealthExperienceMindfulVRExperience.avif",
     alt: "VR Mental Health Experience",
     link: "/coming-soon?product=MindfulVR",
     title: "MindfulVR",
@@ -14,7 +13,7 @@ const adBanners = [
     cta: "Try Free for 30 Days",
   },
   {
-    image: "/ZenMind.png",
+    image: "https://pub-d6475def8a4045c2992481493ad3c8e4.r2.dev/ZenMind.avif",
     alt: "Meditation App Ad",
     link: "/coming-soon?product=ZenMind+App",
     title: "ZenMind App",

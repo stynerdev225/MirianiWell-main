@@ -7,6 +7,13 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 import "./globals.css";
 
+function hasValidClerkKeys() {
+  return !!(
+    process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY &&
+    process.env.CLERK_SECRET_KEY
+  );
+}
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -56,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   // Check if Clerk keys are available
-  const hasClerkKeys = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+  const hasClerkKeys = hasValidClerkKeys();
 
   if (!hasClerkKeys) {
     // If no Clerk keys, render without ClerkProvider
