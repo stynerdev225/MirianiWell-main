@@ -1,0 +1,10 @@
+/* Styling for AI Insights component */
+
+.ai-insights-background {
+  background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=600&fit=crop&crop=center');
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+}

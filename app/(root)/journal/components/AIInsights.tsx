@@ -6,6 +6,7 @@ import {
   generateJournalInsights,
   type AIInsightResponse,
 } from "@/lib/openrouter";
+import "./AIInsights.css";
 
 interface AIInsightsComponentProps {
   journalEntries: Array<{
@@ -53,13 +54,7 @@ export default function AIInsightsComponent({
     return (
       <div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl shadow-lg p-8 text-white relative overflow-hidden mb-8">
         <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=600&fit=crop&crop=center')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
+          className="ai-insights-background"
         />
         <div className="relative z-10">
           <div className="flex items-center gap-2 mb-6">
@@ -207,7 +202,7 @@ export default function AIInsightsComponent({
                 key={index}
                 className="p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border border-indigo-100"
               >
-                <p className="text-gray-700 italic">"{suggestion}"</p>
+                <p className="text-gray-700 italic">&ldquo;{suggestion}&rdquo;</p>
                 <button className="mt-2 text-sm text-indigo-600 hover:text-indigo-700 font-medium">
                   Use this prompt →
                 </button>
